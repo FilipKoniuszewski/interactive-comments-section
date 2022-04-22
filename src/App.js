@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import CommentsSection from "./Components/CommentsSection";
+import {useEffect, useState} from "react";
+import jsonData from "./Data/data.json";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [comments, setComments] = useState();
+    
+    const [currentUser, setCurrentUser] = useState()
+    
+    useEffect(()=>{
+        setComments(jsonData.comments);
+        setCurrentUser(jsonData.currentUser)
+    },[])
+
+    let addComment = (newComment) => {
+        setComments([...comments, newComment]);
+    };
+    
+    let deleteComment = (commentToDelete, id) => {
+        setComments(comments.fill((comment) => comment.id !== id))
+    }
+    
+    return (
+        <div className="wrapper">
+            {comments && currentUser && <CommentsSection currentUser={currentUser} comments={comments}/>}
+        </div>
+    );
 }
 
 export default App;
