@@ -1,10 +1,10 @@
 ﻿.new-comment-section {
     display: flex;
     gap: 0.5rem;
-    padding: 2rem;
+    padding: 1rem 2rem;
     background: var(--neutral-white);
-    border-radius: 1rem;
-    animation: come-in 1s ease-in-out;
+    border-radius: 0.7rem;
+    animation: come-in 1.5s ease-in-out;
 }
 
 .new-comment-section > img {

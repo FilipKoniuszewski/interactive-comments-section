@@ -2,8 +2,9 @@
     background: var(--neutral-white);
     display: flex;
     gap: 1.5rem;
-    border-radius: 1rem;
-    padding: 2rem;
+    border-radius: 0.7rem;
+    padding: 1.5rem 2rem;
+    animation: come-in 1s ease-in-out;
 }
 
 .stats-section {
@@ -81,4 +82,22 @@
 
 .comment-content {
     color: var(--neutral-grayish-blue);
+    line-height: 24px;
+}
+
+@keyframes come-in {
+    0%{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    75%{
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

@@ -1,0 +1,36 @@
+﻿.reply-section {
+    border-left: 2px solid var(--neutral-light-gray);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    animation: come-in 1.5s ease-in-out;
+    align-self: end;
+    width: 95%;
+    
+}
+
+.reply-card {
+    width: 85%;
+    align-self: end;
+   
+}
+
+.reply-content > .replying-to {
+    color: var(--primary-moderate-blue);
+    font-weight: 500;
+    padding-right: 0.2rem;
+}
+
+
+@keyframes come-in {
+
+    0%{
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
