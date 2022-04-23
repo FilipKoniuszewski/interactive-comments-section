@@ -12,7 +12,7 @@ import ReactTimeAgo from "react-time-ago";
 
 
 export default function CommentCard(
-    {commentId, currentUser, deleteComment, setModalOpen, editComment, upVote, downVote, content, createdAt, score, user, replies}) {
+    {commentId, currentUser, setCommentToDelete, setModalOpen, editComment, upVote, downVote, content, createdAt, score, user, replies}) {
     
     const [isCommentOwner, setIsCommentOwner] = useState(false);
     
@@ -38,10 +38,13 @@ export default function CommentCard(
     
     function HandleDelete() {
         setModalOpen(true);
+        setCommentToDelete({
+            id: commentId,
+            isReply: false
+        })
     }
 
     function HandleEdit() {
-
     }
     
     function UpVote() {
@@ -109,6 +112,7 @@ export default function CommentCard(
             </div>
             {replies.length !== 0 && <ReplySection
                 setModalOpen={setModalOpen}
+                setCommentToDelete={setCommentToDelete}
                 currentUser={currentUser}
                 upVote={upVote}
                 downVote={downVote}

@@ -17,6 +17,11 @@ function App() {
     
     const modalRef = useRef(null);
     
+    const [commentToDelete, setCommentToDelete] = useState({
+        id: 0,
+        isReply: false,
+    });
+    
     useEffect(()=>{
         setComments(jsonData.comments);
         setCurrentUser(jsonData.currentUser)
@@ -25,11 +30,9 @@ function App() {
     useEffect(() => {
         if (modalOpen) {
             modalRef.current.classList.add('open')
-            document.body.style.overflow = 'hidden'
         }
         else {
             modalRef.current.classList.remove('open')
-            document.body.style.overflow = 'scroll'
         }
         
     }, [modalOpen])
@@ -50,8 +53,17 @@ function App() {
         setComments([...comments, newComment]);
     };
     
-    let deleteComment = (id) => {
-        setComments(comments.filter(comment => comment.id !== id))
+    let deleteComment = () => {
+        if (commentToDelete.isReply) {
+            let commentsToUpdate = [...comments]
+            commentsToUpdate.forEach((comment) => {
+                comment.replies = comment.replies.filter((reply) => reply.id !== commentToDelete.id)
+            })
+            setComments(commentsToUpdate)
+        }
+        else {
+            setComments(comments.filter(comment => comment.id !== commentToDelete.id))
+        }
     }
     
     let editComment = (id, commentContent) => {
@@ -102,6 +114,9 @@ function App() {
         <div className="wrapper">
             <DeleteModal modalRef={modalRef}
                          modalContentRef={modalContentRef}
+                         commentToDelete={commentToDelete}
+                         setCommentToDelete={setCommentToDelete}
+                         deleteComment={deleteComment}
                          setModalOpen={setModalOpen}/>
             {comments && currentUser && <CommentsSection 
                 modalRef={modalRef}
@@ -109,6 +124,7 @@ function App() {
                 deleteComment={deleteComment}
                 setModalOpen={setModalOpen}
                 upVote={upVote}
+                setCommentToDelete={setCommentToDelete}
                 downVote={downVote}
                 editComment={editComment}
                 currentUser={currentUser} 

@@ -6,7 +6,8 @@ import "../Style/CommentCard.css";
 import deleteIcon from "../Assets/Images/icon-delete.svg";
 import editIcon from "../Assets/Images/icon-edit.svg";
 
-function ReplyCard({setModalOpen, replyId, currentUser, content, createdAt, score, user, upVote, downVote, replyTo}) {
+function ReplyCard(
+    {setModalOpen, replyId, setCommentToDelete, currentUser, content, createdAt, score, user, upVote, downVote, replyTo}) {
 
     let userImage = require(`../Assets/Images/avatars/${user.image.png}`)
 
@@ -28,6 +29,10 @@ function ReplyCard({setModalOpen, replyId, currentUser, content, createdAt, scor
     
     function HandleDelete() {
         setModalOpen(true);
+        setCommentToDelete({
+            id: replyId, 
+            isReply: true
+        })
     }
 
     function UpVote() {
