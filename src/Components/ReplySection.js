@@ -2,7 +2,7 @@
 import "../Style/ReplySection.css";
 import ReplyCard from "./ReplyCard";
 
-export default function ReplySection({setModalOpen, setCommentToDelete, currentUser, upVote, downVote, replies}) {
+export default function ReplySection({setModalOpen, editComment, setCommentToDelete, currentUser, upVote, downVote, replies}) {
     return (
         <div className="reply-section">
             {replies.map((reply) => 
@@ -12,6 +12,7 @@ export default function ReplySection({setModalOpen, setCommentToDelete, currentU
                     replyId={reply.id}
                     setCommentToDelete={setCommentToDelete}
                     currentUser={currentUser}
+                    editComment={editComment}
                     content={reply.content}
                     createdAt={reply.createdAt}
                     score={reply.score}

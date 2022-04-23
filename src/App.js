@@ -4,7 +4,6 @@ import React, {useEffect, useRef, useState} from "react";
 import jsonData from "./Data/data.json";
 import DeleteModal from "./Components/DeleteModal";
 import "./Style/DeleteModal.css";
-import ClickAwayListener from '@mui/base/ClickAwayListener';
 
 function App() {
     const [comments, setComments] = useState([]);
@@ -66,10 +65,23 @@ function App() {
         }
     }
     
-    let editComment = (id, commentContent) => {
-        setComments(comments.map((comment) => comment.id === id 
-            ? {...comment, content: commentContent} 
-            : comment)) 
+    let editComment = (id, commentContent, isReply) => {
+        if (isReply) {
+            let commentsToUpdate = [...comments]
+            commentsToUpdate.forEach((comment) => {
+                comment.replies.map((reply) => {
+                    if (reply.id === id) {
+                        reply.content = commentContent
+                    }
+                })
+                setComments(commentsToUpdate)
+            })
+        }
+        else {
+            setComments(comments.map((comment) => comment.id === id
+                ? {...comment, content: commentContent}
+                : comment))
+        }
     }
     
     let upVote = (id, isReply) => {
@@ -118,7 +130,8 @@ function App() {
                          setCommentToDelete={setCommentToDelete}
                          deleteComment={deleteComment}
                          setModalOpen={setModalOpen}/>
-            {comments && currentUser && <CommentsSection 
+            {comments && currentUser && 
+            <CommentsSection 
                 modalRef={modalRef}
                 addComment={addComment}
                 deleteComment={deleteComment}

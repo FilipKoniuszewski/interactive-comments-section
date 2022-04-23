@@ -9,6 +9,7 @@ import ReplySection from "./ReplySection";
 import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en.json'
 import ReactTimeAgo from "react-time-ago";
+import EditComment from "./EditComment";
 
 
 export default function CommentCard(
@@ -19,6 +20,8 @@ export default function CommentCard(
     const [isUpVoted, setIsUpVoted] = useState(false);
 
     const [isDownVoted, setIsDownVoted] = useState(false);
+    
+    const [edit, setEdit] = useState(false);
     
     TimeAgo.addLocale(en)
     
@@ -45,6 +48,7 @@ export default function CommentCard(
     }
 
     function HandleEdit() {
+        setEdit(true);
     }
     
     function UpVote() {
@@ -105,14 +109,24 @@ export default function CommentCard(
                             </div>
                         }
                     </div>
-                    <div className="comment-content">
-                        {content}
-                    </div>
+                    {edit 
+                        ? <EditComment 
+                            commentId={commentId}
+                            content={content}
+                            editComment={editComment}
+                            setEdit={setEdit}
+                            isReply={false}/>
+                        : 
+                        <div className="comment-content">
+                            {content}
+                        </div>
+                    }
                 </div>
             </div>
             {replies.length !== 0 && <ReplySection
                 setModalOpen={setModalOpen}
                 setCommentToDelete={setCommentToDelete}
+                editComment={editComment}
                 currentUser={currentUser}
                 upVote={upVote}
                 downVote={downVote}

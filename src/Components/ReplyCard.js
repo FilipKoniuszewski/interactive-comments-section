@@ -5,9 +5,10 @@ import replyIcon from "../Assets/Images/icon-reply.svg";
 import "../Style/CommentCard.css";
 import deleteIcon from "../Assets/Images/icon-delete.svg";
 import editIcon from "../Assets/Images/icon-edit.svg";
+import EditComment from "./EditComment";
 
 function ReplyCard(
-    {setModalOpen, replyId, setCommentToDelete, currentUser, content, createdAt, score, user, upVote, downVote, replyTo}) {
+    {setModalOpen, replyId, editComment, setCommentToDelete, currentUser, content, createdAt, score, user, upVote, downVote, replyTo}) {
 
     let userImage = require(`../Assets/Images/avatars/${user.image.png}`)
 
@@ -16,6 +17,8 @@ function ReplyCard(
     const [isUpVoted, setIsUpVoted] = useState(false);
 
     const [isDownVoted, setIsDownVoted] = useState(false);
+
+    const [edit, setEdit] = useState(false);
 
     useEffect(() => {
         if (currentUser.username === user.username) {
@@ -33,6 +36,10 @@ function ReplyCard(
             id: replyId, 
             isReply: true
         })
+    }
+
+    function HandleEdit() {
+        setEdit(true);
     }
 
     function UpVote() {
@@ -78,7 +85,7 @@ function ReplyCard(
                                 <img src={deleteIcon} alt="" />
                                 Delete
                             </div>
-                            <div className="edit">
+                            <div className="edit" onClick={HandleEdit}>
                                 <img src={editIcon} alt="" />
                                 Edit
                             </div>
@@ -91,7 +98,18 @@ function ReplyCard(
                     }
                 </div>
                 <div className="comment-content reply-content">
-                    <span className="replying-to">@{replyTo}</span>{content}
+                    {edit
+                        ? <EditComment
+                            commentId={replyId}
+                            content={content}
+                            editComment={editComment}
+                            setEdit={setEdit}
+                            isReply={true}/>
+                        :
+                        <div className="comment-content">
+                            <span className="replying-to">@{replyTo}</span>{content}
+                        </div>
+                    }
                 </div>
             </div>
         </div>
