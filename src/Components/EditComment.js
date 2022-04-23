@@ -1,4 +1,4 @@
-﻿import React, {useState} from 'react';
+﻿import React, {useEffect, useRef, useState} from 'react';
 import "../Style/EditComment.css"
 
 export default function EditComment({commentId, content, setEdit, editComment, isReply}) {
@@ -7,14 +7,17 @@ export default function EditComment({commentId, content, setEdit, editComment, i
     
     function HandleSubmit(e) {
         e.preventDefault()
-        editComment(commentId, content, isReply)
-        setEdit(false);
+        if (newCommentContent !== "") {
+            editComment(commentId, newCommentContent, isReply)
+            setEdit(false);
+        }
     }
     
     return (
         <form className="edit-comment-form">
             <label htmlFor="commentContent" />
             <textarea name="comment"
+                      rows={5}
                       id="commentContent"
                       autoComplete="off"
                       placeholder="edit a comment..."

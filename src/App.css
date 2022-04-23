@@ -39,3 +39,19 @@ body {
     flex-direction: column;
     gap: 1.2rem;
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neutral-grayish-blue);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

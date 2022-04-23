@@ -1,5 +1,19 @@
 ﻿.edit-comment-form {
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: stretch
 }
+
+.edit-comment-form > textarea {
+    flex: 1;
+    resize: none;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 60ch;
+}
+
+.edit-comment-form > input[type=submit] {
+    align-self: end;
+    padding: 1rem 1.2rem;
+}
+

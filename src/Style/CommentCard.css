@@ -28,7 +28,10 @@
 .comment-content {
     padding-top: 1rem;
     max-width: 60ch;
-    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: var(--neutral-grayish-blue);
+    line-height: 24px;
 }
 
 .stats-section > img {
@@ -100,11 +103,6 @@
 }
 
 .comment-date {
-    color: var(--neutral-grayish-blue);
-    line-height: 24px;
-}
-
-.comment-content {
     color: var(--neutral-grayish-blue);
     line-height: 24px;
 }

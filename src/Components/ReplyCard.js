@@ -7,8 +7,19 @@ import deleteIcon from "../Assets/Images/icon-delete.svg";
 import editIcon from "../Assets/Images/icon-edit.svg";
 import EditComment from "./EditComment";
 
-function ReplyCard(
-    {setModalOpen, replyId, editComment, setCommentToDelete, currentUser, content, createdAt, score, user, upVote, downVote, replyTo}) {
+export default function ReplyCard(
+    {setModalOpen, 
+        replyId, 
+        editComment, 
+        setCommentToDelete, 
+        currentUser, 
+        content, 
+        createdAt, 
+        score, 
+        user, 
+        upVote, 
+        downVote, 
+        replyTo}) {
 
     let userImage = require(`../Assets/Images/avatars/${user.image.png}`)
 
@@ -97,23 +108,19 @@ function ReplyCard(
                         </div>
                     }
                 </div>
-                <div className="comment-content reply-content">
-                    {edit
-                        ? <EditComment
-                            commentId={replyId}
-                            content={content}
-                            editComment={editComment}
-                            setEdit={setEdit}
-                            isReply={true}/>
-                        :
-                        <div className="comment-content">
-                            <span className="replying-to">@{replyTo}</span>{content}
-                        </div>
-                    }
-                </div>
+                {edit
+                    ? <EditComment
+                        commentId={replyId}
+                        content={content}
+                        editComment={editComment}
+                        setEdit={setEdit}
+                        isReply={true}/>
+                    :
+                    <div className="reply-content">
+                        <span className="replying-to">@{replyTo}</span>{content}
+                    </div>
+                }
             </div>
         </div>
     );
 }
-
-export default ReplyCard;
