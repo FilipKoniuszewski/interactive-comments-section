@@ -1,13 +1,26 @@
 ﻿import React, {useState} from 'react';
 import "../Style/NewComment.css";
 
-function NewComment(props) {
+function NewComment({currentUser, addComment}) {
     
-    let currentUserImage = require(`../Assets/Images/avatars/${props.currentUser.image.png}`)
+    let currentUserImage = require(`../Assets/Images/avatars/${currentUser.image.png}`)
+    
     let [newCommentContent, setNewCommentContent] = useState("")
     
     function HandleSubmit(e) {
         e.preventDefault()
+        if (newCommentContent) {
+            const newComment = {
+                id: Math.floor(Math.random() * 100) + 5,
+                content: newCommentContent,
+                createdAt: new Date(),
+                score: 0,
+                user: currentUser,
+                replies: [],
+            };
+            addComment(newComment)
+            setNewCommentContent("")
+        }
     }
     return (
         <div className="new-comment-section">

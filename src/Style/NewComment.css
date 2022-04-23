@@ -20,7 +20,7 @@ input[type=submit] {
     padding: 1rem 1.9rem;
     background: var(--primary-moderate-blue);
     border-radius: 0.4rem;
-    font-weight: 500;
+    font-weight: 700;
     align-self: start;
     transition: 100ms ease-in-out;
 }

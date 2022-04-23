@@ -17,7 +17,7 @@
 
 .reply-content > .replying-to {
     color: var(--primary-moderate-blue);
-    font-weight: 500;
+    font-weight: 700;
     padding-right: 0.2rem;
 }
 

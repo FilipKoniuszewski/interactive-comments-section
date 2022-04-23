@@ -2,16 +2,21 @@
 import "../Style/ReplySection.css";
 import ReplyCard from "./ReplyCard";
 
-export default function ReplySection(props) {
+export default function ReplySection({setModalOpen, currentUser, upVote, downVote, replies}) {
     return (
         <div className="reply-section">
-            {props.replies.map((reply) => 
+            {replies.map((reply) => 
                 <ReplyCard 
                     key={reply.id}
+                    setModalOpen={setModalOpen}
+                    replyId={reply.id}
+                    currentUser={currentUser}
                     content={reply.content}
                     createdAt={reply.createdAt}
                     score={reply.score}
                     user={reply.user}
+                    upVote={upVote}
+                    downVote={downVote}
                     replyTo={reply.replyingTo}/>)}
         </div>
     );

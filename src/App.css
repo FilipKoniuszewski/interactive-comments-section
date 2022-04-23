@@ -13,7 +13,8 @@
     --neutral-white: hsl(0, 0%, 100%);
 }
 
-* {
+*
+{
     margin: 0;
     padding: 0;
     font-family: "Rubik", sans-serif;
@@ -21,7 +22,7 @@
 
 body {
     font-size: 16px;
-    background: var(--neutral-very-light-gray);
+    overflow: hidden;
     
 }
 
@@ -30,7 +31,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto auto;
+    margin: auto;
+    background: var(--neutral-very-light-gray);
 }
 
 .comments-section {

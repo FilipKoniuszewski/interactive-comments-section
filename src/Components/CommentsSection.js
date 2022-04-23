@@ -2,19 +2,27 @@
 import CommentCard from "./CommentCard";
 import NewComment from "./NewComment";
 
-export default function CommentsSection(props) {
-    console.log(props)
+export default function CommentsSection({addComment, deleteComment, setModalOpen, upVote, downVote, editComment, currentUser, comments}) {
     return (
         <section className="comments-section">
-            {props.comments.map((comment) => 
+            {comments.map((comment) => 
             <CommentCard 
-                key={comment.id} 
+                key={comment.id}
+                commentId={comment.id}
+                currentUser={currentUser}
+                deleteComment={deleteComment}
+                setModalOpen={setModalOpen}
+                editComment={editComment}
+                upVote={upVote}
+                downVote={downVote}
                 content={comment.content}
                 createdAt={comment.createdAt}
                 score={comment.score}
                 user={comment.user}
                 replies={comment.replies}/>)}
-            <NewComment currentUser={props.currentUser}/>
+            
+            <NewComment currentUser={currentUser} 
+                        addComment={addComment}/>
         </section>
         
     );

@@ -5,6 +5,11 @@
     border-radius: 0.7rem;
     padding: 1.5rem 2rem;
     animation: come-in 1s ease-in-out;
+    align-items: stretch;
+}
+
+.comment-section {
+    flex: 1;
 }
 
 .stats-section {
@@ -23,13 +28,14 @@
 .comment-content {
     padding-top: 1rem;
     max-width: 60ch;
+    overflow-wrap: break-word;
 }
 
 .stats-section > img {
     transition: 20ms ease-in-out;
 }
 
-.stats-section > img:hover {
+.stats-section > .not-scored:hover {
     cursor: pointer;
     filter: brightness(0) saturate(100%) invert(32%) sepia(49%) saturate(1045%) hue-rotate(205deg) brightness(95%) contrast(88%);
 }
@@ -41,8 +47,8 @@
 
 .user {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .stats-count {
@@ -50,16 +56,34 @@
     font-weight: 700;
 }
 
-.reply {
-    color: var(--primary-moderate-blue);
-    font-weight: 500;
+.reply, .edit, .delete {
+    font-weight: 700;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     transition: 100ms ease-in-out;
+    line-height: 24px;
 }
 
-.reply:hover {
+.reply, .edit {
+    color: var(--primary-moderate-blue);
+}
+.delete {
+    color: var(--primary-soft-red)
+}
+
+.comment-owner {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.scored {
+    opacity: 0.4;
+}
+
+
+
+.reply:hover, .delete:hover, .edit:hover {
     cursor: pointer;
     opacity: 0.5;
 }
