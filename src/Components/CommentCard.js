@@ -38,6 +38,8 @@ export default function CommentCard(
     const [edit, setEdit] = useState(false);
     
     const [reply, setReply] = useState(false);
+
+    const [replyOrder, setReplyOrder] = useState(-1);
     
     TimeAgo.addLocale(en)
     
@@ -106,13 +108,13 @@ export default function CommentCard(
                                 </div>
                                 <div className={`edit ${edit && 'active'}`} onClick={() => setEdit(!edit)}>
                                     <img src={editIcon} alt="" />
-                                    Edit
+                                    {edit ? 'Cancel' : 'Edit'}
                                 </div>
                             </div> 
                             :
-                            <div className={`reply ${reply && 'active'}`} onClick={() => setReply(!reply)}>
+                            <div className={`reply ${reply && replyOrder === -1 && 'active'}`} onClick={() => setReply(!reply)}>
                                 <img src={replyIcon} alt="" />
-                                <span>Reply</span>
+                                <span>{reply && replyOrder === -1 ? 'Cancel' : 'Reply'}</span>
                             </div>
                         }
                     </div>
@@ -131,6 +133,8 @@ export default function CommentCard(
                 </div>
             </div>
             <ReplySection
+                replyOrder={replyOrder}
+                setReplyOrder={setReplyOrder}
                 setModalOpen={setModalOpen}
                 commentId={commentId}
                 addReply={addReply}

@@ -12,6 +12,7 @@ export default function ReplyCard(
     {
         userComment,
         setReplyOrder,
+        replyOrder,
         setModalOpen, 
         order,
         replyId,
@@ -110,13 +111,13 @@ export default function ReplyCard(
                             </div>
                             <div className={`edit ${edit && 'active'}`} onClick={() => setEdit(!edit)}>
                                 <img src={editIcon} alt="" />
-                                Edit
+                                {edit ? 'Cancel' : 'Edit'}
                             </div>
                         </div>
                         :
-                        <div className={`reply ${reply && 'active'}`} onClick={HandleReply}>
+                        <div className={`reply ${reply && replyOrder === order && 'active'}`} onClick={HandleReply}>
                             <img src={replyIcon} alt="" />
-                            <span>Reply</span>
+                            <span>{reply && replyOrder === order ? 'Cancel' : 'Reply'}</span>
                         </div>
                     }
                 </div>

@@ -5,6 +5,8 @@ import NewReply from "./NewReply";
 
 export default function ReplySection(
     {
+        replyOrder,
+        setReplyOrder,
         setModalOpen, 
         userComment, 
         commentId, 
@@ -21,7 +23,6 @@ export default function ReplySection(
     
     const [replyTo, setReplyTo] = useState(userComment);
     
-    const [replyOrder, setReplyOrder] = useState(-1);
     
     useEffect(() => {
         setReplyTo(userComment)
@@ -34,6 +35,7 @@ export default function ReplySection(
                     key={replyCard.id}
                     order={index}
                     setReplyOrder={setReplyOrder}
+                    replyOrder={replyOrder}
                     userComment={userComment}
                     reply={reply}
                     setReply={setReply}
