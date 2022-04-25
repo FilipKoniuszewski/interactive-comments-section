@@ -10,6 +10,11 @@ This is a solution for a [Frontend Mentor](https://www.frontendmentor.io) challe
 
 Your challenge is to build out this interactive comments section and get it looking as close to the design as possible.
 
+## Links
+
+- [Solution URL](https://www.frontendmentor.io/solutions/responsive-interactive-comments-section-using-reactjs-BkD6RPNS9)
+- [Live Site URL](https://filipkoniuszewski.github.io/interactive-comments-section/) 
+
 I could use any tools I like to help complete the challenge.
 
 Your users should be able to:
