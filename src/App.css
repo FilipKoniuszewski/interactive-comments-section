@@ -63,7 +63,7 @@ body {
 
 @media (max-width: 768px) {
     .comments-section {
-        max-width: 80%;
+        max-width: 90%;
         gap: 1.2rem;
     }
     

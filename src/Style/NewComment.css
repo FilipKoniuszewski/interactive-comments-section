@@ -48,6 +48,19 @@ textarea:focus {
     border: 2px solid var(--primary-moderate-blue);
 }
 
+.add-comment-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-comment-section > img {
+    display: none;
+    align-self: start;
+    width: 2.5rem;
+    aspect-ratio: 1;
+}
+
 @keyframes come-in {
     0%{
         opacity: 0;
@@ -74,13 +87,15 @@ textarea:focus {
     
     
     .new-comment-form > img {
-        position: relative;
-        top: -3rem;
-        order: 2;
+        display: none;
+    }
+    
+    .add-comment-section > img {
+        display: initial;
     }
     
     .new-comment-form > input[type=submit] {
-        align-self: end;
+        align-self: flex-end;
     }
     
     .new-comment-form > textarea {

@@ -89,11 +89,10 @@
 @media (max-width: 768px) {
     .new-reply-form {
         flex-direction: column;
-        height: 15rem;
     }
     
     .new-reply-card {
-        max-height: 12rem;
+        
     }
     
     .reply-section {
@@ -101,16 +100,14 @@
     }
     
     .reply-card {
-        max-width: 80%;
+        max-width: 90%;
     }
 
     .new-reply-form > img {
-        order: 2;
-        position: relative;
-        top: -3rem;
+        display: none;
     }
 
     .new-reply-form > input[type=submit] {
-        align-self: end;
+        align-self: flex-end;
     }
 }

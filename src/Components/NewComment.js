@@ -34,11 +34,14 @@ function NewComment({currentUser, addComment}) {
                       value={newCommentContent}
                       onChange={e => setNewCommentContent(e.target.value)}
             />
-            <input type="submit"
-                   name="submit"
-                   id="add-comment"
-                   onClick={(e) => HandleSubmit(e)}
-                   value="SEND"/>
+            <div className="add-comment-section">
+                <img src={currentUserImage} alt="" />
+                <input type="submit"
+                       name="submit"
+                       id="add-comment"
+                       onClick={(e) => HandleSubmit(e)}
+                       value="SEND"/>
+            </div>
         </form>
         
     );

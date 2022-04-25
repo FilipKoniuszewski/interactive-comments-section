@@ -65,11 +65,15 @@ function NewReply(
                           value={replyContent}
                           onChange={e => setReplyContent(e.target.value)}
                 />
-                <input type="submit"
-                       name="submit"
-                       id="add-comment"
-                       onClick={(e) => HandleSubmit(e)}
-                       value="REPLY"/>
+                <div className="add-comment-section">
+                    <img src={userImage} alt="" />
+                    <input type="submit"
+                           name="submit"
+                           id="add-comment"
+                           onClick={(e) => HandleSubmit(e)}
+                           value="REPLY"/>
+                </div>
+                
             </form>
         </div>
     );
