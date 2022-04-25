@@ -34,6 +34,7 @@ export default function ReplySection(
                     key={replyCard.id}
                     order={index}
                     setReplyOrder={setReplyOrder}
+                    userComment={userComment}
                     reply={reply}
                     setReply={setReply}
                     setReplyTo={setReplyTo}

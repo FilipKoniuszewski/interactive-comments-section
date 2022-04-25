@@ -10,6 +10,7 @@ import ReactTimeAgo from "react-time-ago";
 
 export default function ReplyCard(
     {
+        userComment,
         setReplyOrder,
         setModalOpen, 
         order,
@@ -56,7 +57,10 @@ export default function ReplyCard(
         setReply(!reply)
         setReplyTo(user.username)
         setReplyOrder(order)
-        
+        if (reply === true) {
+            setReplyOrder(-1)
+            setReplyTo(userComment)
+        }
     }
 
     function UpVote() {
