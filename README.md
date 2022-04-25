@@ -6,7 +6,7 @@ This is a solution for a [Frontend Mentor](https://www.frontendmentor.io) challe
 
 ## The challenge
 
-![Design preview for the Interactive comments section coding challenge](https://user-images.githubusercontent.com/82803009/165187887-df3f0d5b-cd08-49b7-94ee-d285d192e31c.jpg)
+![Design preview for the Interactive comments section coding challenge](https://user-images.githubusercontent.com/82803009/165188106-ba2c6898-5f86-42f5-92e5-96f3342142b6.jpg)
 
 Your challenge is to build out this interactive comments section and get it looking as close to the design as possible.
 
