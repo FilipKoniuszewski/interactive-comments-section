@@ -14,6 +14,7 @@ export default function EditReply({commentId, content, editComment}) {
         <form className="edit-comment-form">
             <label htmlFor="commentContent" />
             <textarea name="comment"
+                      autoFocus
                       id="commentContent"
                       autoComplete="off"
                       placeholder="edit a comment..."

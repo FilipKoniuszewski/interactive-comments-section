@@ -2,7 +2,7 @@
     border-left: 2px solid var(--neutral-light-gray);
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem;
     animation: come-in 1.5s ease-in-out;
     align-self: end;
     width: 95%;
@@ -19,7 +19,6 @@
     padding-top: 1rem;
     max-width: 55ch;
     word-wrap: break-word;
-    word-break: break-all;
     color: var(--neutral-grayish-blue);
     line-height: 24px;
 }
@@ -29,6 +28,49 @@
     font-weight: 700;
     padding-right: 0.2rem;
 }
+
+.new-reply-form {
+    display: flex;
+    align-items: stretch;
+}
+
+.reply-to-name {
+    position: absolute;
+    color: var(--neutral-grayish-blue);
+}
+
+.active {
+    opacity: 0.5 !important;
+}
+
+.new-reply-form > textarea {
+    flex: 1;
+    resize: none;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 60ch;
+}
+
+.new-reply-form > input[type=submit] {
+    padding: 1rem 1.5rem;
+}
+
+.new-reply-form > img {
+    align-self: start;
+    width: 2.5rem;
+    aspect-ratio: 1;
+}
+
+.new-reply-card {
+    background: var(--neutral-white);
+    display: flex;
+    gap: 1.5rem;
+    border-radius: 0.7rem;
+    padding: 1.5rem 2rem;
+    animation: come-in 0.5s ease-in-out;
+    align-items: stretch;
+}
+
 
 
 @keyframes come-in {

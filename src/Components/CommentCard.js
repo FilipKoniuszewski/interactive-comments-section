@@ -13,7 +13,21 @@ import EditComment from "./EditComment";
 
 
 export default function CommentCard(
-    {commentId, currentUser, setCommentToDelete, setModalOpen, editComment, upVote, downVote, content, createdAt, score, user, replies}) {
+    {
+        commentId, 
+        currentUser, 
+        setCommentToDelete, 
+        setModalOpen, 
+        editComment, 
+        upVote, 
+        downVote, 
+        content, 
+        createdAt, 
+        score, 
+        user, 
+        replies,
+        addReply
+    }) {
     
     const [isCommentOwner, setIsCommentOwner] = useState(false);
     
@@ -23,11 +37,11 @@ export default function CommentCard(
     
     const [edit, setEdit] = useState(false);
     
+    const [reply, setReply] = useState(false);
+    
     TimeAgo.addLocale(en)
     
-    
     let userImage = require(`../Assets/Images/avatars/${user.image.png}`)
-    
     
     useEffect(() => {
         if (currentUser.username === user.username) {
@@ -35,9 +49,6 @@ export default function CommentCard(
         }
     }, [])
     
-    function HandleReply() {
-        
-    }
     
     function HandleDelete() {
         setModalOpen(true);
@@ -45,10 +56,6 @@ export default function CommentCard(
             id: commentId,
             isReply: false
         })
-    }
-
-    function HandleEdit() {
-        setEdit(true);
     }
     
     function UpVote() {
@@ -65,7 +72,7 @@ export default function CommentCard(
     
     return (
         <>
-            <div className="comment-card">
+            <div className="comment-card card-space">
                 <div className="stats-section">
                     {isUpVoted || isCommentOwner
                         ? <img src={plusIcon} alt="" className='scored' />
@@ -97,13 +104,13 @@ export default function CommentCard(
                                     <img src={deleteIcon} alt=""/>
                                     Delete
                                 </div>
-                                <div className="edit" onClick={HandleEdit}>
+                                <div className={`edit ${edit && 'active'}`} onClick={() => setEdit(!edit)}>
                                     <img src={editIcon} alt="" />
                                     Edit
                                 </div>
                             </div> 
                             :
-                            <div className="reply" onClick={HandleReply}>
+                            <div className={`reply ${reply && 'active'}`} onClick={() => setReply(!reply)}>
                                 <img src={replyIcon} alt="" />
                                 <span>Reply</span>
                             </div>
@@ -123,15 +130,20 @@ export default function CommentCard(
                     }
                 </div>
             </div>
-            {replies.length !== 0 && <ReplySection
+            <ReplySection
                 setModalOpen={setModalOpen}
+                commentId={commentId}
+                addReply={addReply}
+                userComment={user.username}
                 setCommentToDelete={setCommentToDelete}
                 editComment={editComment}
                 currentUser={currentUser}
                 upVote={upVote}
                 downVote={downVote}
                 replies={replies}
-            />}
+                reply={reply}
+                setReply={setReply}
+            />
         </>
     );
 }

@@ -29,7 +29,6 @@
     padding-top: 1rem;
     max-width: 60ch;
     word-wrap: break-word;
-    word-break: break-all;
     color: var(--neutral-grayish-blue);
     line-height: 24px;
 }
@@ -66,6 +65,7 @@
     gap: 0.5rem;
     transition: 100ms ease-in-out;
     line-height: 24px;
+    user-select: none;
 }
 
 .reply, .edit {

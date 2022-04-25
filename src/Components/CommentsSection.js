@@ -2,13 +2,27 @@
 import CommentCard from "./CommentCard";
 import NewComment from "./NewComment";
 
-export default function CommentsSection({addComment, setCommentToDelete, deleteComment, setModalOpen, upVote, downVote, editComment, currentUser, comments}) {
+export default function CommentsSection(
+    {
+        addComment, 
+        addReply, 
+        setCommentToDelete, 
+        deleteComment, 
+        setModalOpen, 
+        upVote, 
+        downVote, 
+        editComment, 
+        currentUser, 
+        comments
+    }) {
+    
     return (
         <section className="comments-section">
             {comments.map((comment) => 
             <CommentCard 
                 key={comment.id}
                 commentId={comment.id}
+                addReply={addReply}
                 currentUser={currentUser}
                 deleteComment={deleteComment}
                 setModalOpen={setModalOpen}

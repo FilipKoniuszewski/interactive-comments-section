@@ -52,6 +52,16 @@ function App() {
         setComments([...comments, newComment]);
     };
     
+    let addReply = (newReply, commentId) => {
+        let commentsToUpdate = [...comments]
+        commentsToUpdate.forEach((comment) => {
+            if (comment.id === commentId) {
+                comment.replies = [...comment.replies, newReply]
+            }
+        })
+        setComments(commentsToUpdate)
+    }
+    
     let deleteComment = () => {
         if (commentToDelete.isReply) {
             let commentsToUpdate = [...comments]
@@ -137,6 +147,7 @@ function App() {
                 deleteComment={deleteComment}
                 setModalOpen={setModalOpen}
                 upVote={upVote}
+                addReply={addReply}
                 setCommentToDelete={setCommentToDelete}
                 downVote={downVote}
                 editComment={editComment}

@@ -6,10 +6,17 @@ import "../Style/CommentCard.css";
 import deleteIcon from "../Assets/Images/icon-delete.svg";
 import editIcon from "../Assets/Images/icon-edit.svg";
 import EditComment from "./EditComment";
+import ReactTimeAgo from "react-time-ago";
 
 export default function ReplyCard(
-    {setModalOpen, 
-        replyId, 
+    {
+        setReplyOrder,
+        setModalOpen, 
+        order,
+        replyId,
+        reply,
+        setReply,
+        setReplyTo,
         editComment, 
         setCommentToDelete, 
         currentUser, 
@@ -37,10 +44,6 @@ export default function ReplyCard(
         }
     }, [])
     
-    function HandleReply() {
-        
-    }
-    
     function HandleDelete() {
         setModalOpen(true);
         setCommentToDelete({
@@ -48,9 +51,12 @@ export default function ReplyCard(
             isReply: true
         })
     }
-
-    function HandleEdit() {
-        setEdit(true);
+    
+    function HandleReply() {
+        setReply(!reply)
+        setReplyTo(user.username)
+        setReplyOrder(order)
+        
     }
 
     function UpVote() {
@@ -66,7 +72,7 @@ export default function ReplyCard(
     }
     
     return (
-        <div className="comment-card reply-card">
+        <div className="comment-card reply-card" style={{order: `${order}`}}>
             <div className="stats-section">
                 {isUpVoted || isCommentOwner
                     ? <img src={plusIcon} alt="" className='scored' />
@@ -86,7 +92,9 @@ export default function ReplyCard(
                                 {user.username}
                             </span>
                         <span className="comment-date">
-                                {createdAt}
+                                {!isNaN(Date.parse(createdAt))
+                                    ? <ReactTimeAgo date={createdAt} locale="en-US" timeStyle="twitter"/>
+                                    : createdAt} 
                             </span>
                     </div>
                     {isCommentOwner
@@ -96,13 +104,13 @@ export default function ReplyCard(
                                 <img src={deleteIcon} alt="" />
                                 Delete
                             </div>
-                            <div className="edit" onClick={HandleEdit}>
+                            <div className={`edit ${edit && 'active'}`} onClick={() => setEdit(!edit)}>
                                 <img src={editIcon} alt="" />
                                 Edit
                             </div>
                         </div>
                         :
-                        <div className="reply" onClick={HandleReply}>
+                        <div className={`reply ${reply && 'active'}`} onClick={HandleReply}>
                             <img src={replyIcon} alt="" />
                             <span>Reply</span>
                         </div>
