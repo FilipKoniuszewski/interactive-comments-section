@@ -21,8 +21,6 @@ Your users should be able to:
 - **Bonus**: If you're building a purely front-end project, use `localStorage` to save the current state in the browser that persists when the browser is refreshed.
 - **Bonus**: Instead of using the `createdAt` strings from the `data.json` file, try using timestamps and dynamically track the time since the comment or reply was posted.
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
-
 ### Expected behaviour
 
 - First-level comments should be ordered by their score, whereas nested replies are ordered by time added.
