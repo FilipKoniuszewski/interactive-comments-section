@@ -15,6 +15,7 @@ function NewComment({currentUser, addComment}) {
                 content: newCommentContent,
                 createdAt: new Date(),
                 score: 0,
+                vote: "no",
                 user: currentUser,
                 replies: [],
             };

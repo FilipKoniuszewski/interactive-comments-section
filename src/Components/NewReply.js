@@ -37,6 +37,7 @@ function NewReply(
                 content: updatedContent,
                 createdAt: new Date(),
                 score: 0,
+                vote: "no",
                 replyingTo: replyTo,
                 user: currentUser,
             };

@@ -15,7 +15,7 @@ export default function ReplySection(
         editComment, 
         setCommentToDelete, 
         currentUser, 
-        upVote, 
+        upVote,
         downVote, 
         replies,
         addReply
@@ -48,6 +48,7 @@ export default function ReplySection(
                     content={replyCard.content}
                     createdAt={replyCard.createdAt}
                     score={replyCard.score}
+                    vote={replyCard.vote}
                     user={replyCard.user}
                     upVote={upVote}
                     downVote={downVote}

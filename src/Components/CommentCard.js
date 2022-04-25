@@ -15,6 +15,7 @@ import EditComment from "./EditComment";
 export default function CommentCard(
     {
         commentId, 
+        vote,
         currentUser, 
         setCommentToDelete, 
         setModalOpen, 
@@ -76,13 +77,13 @@ export default function CommentCard(
             <div className="comment-card card-space">
                 <div className="stats-container">
                     <div className="stats-section">
-                        {isUpVoted || isCommentOwner
+                        {(vote === 'upVote') || isCommentOwner
                             ? <img src={plusIcon} alt="" className='scored' />
                             : <img src={plusIcon} alt="" className='not-scored' onClick={UpVote}/>}
                         <div className="stats-count">
                             {score}
                         </div>
-                        {isDownVoted || isCommentOwner
+                        {(vote === 'downVote') || isCommentOwner
                             ? <img src={minusIcon} alt="" className='scored' /> 
                             : <img src={minusIcon} alt="" className='not-scored' onClick={DownVote}/>}
                     </div>

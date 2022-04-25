@@ -32,6 +32,7 @@ export default function CommentsSection(
                 content={comment.content}
                 createdAt={comment.createdAt}
                 score={comment.score}
+                vote={comment.vote}
                 setCommentToDelete={setCommentToDelete}
                 user={comment.user}
                 replies={comment.replies}/>)}

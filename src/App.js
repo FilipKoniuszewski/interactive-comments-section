@@ -20,11 +20,26 @@ function App() {
         id: 0,
         isReply: false,
     });
+
     
-    useEffect(()=>{
-        setComments(jsonData.comments);
-        setCurrentUser(jsonData.currentUser)
-    },[])
+    useEffect(() => {
+        if (localStorage.getItem("comments")) {
+            setComments(JSON.parse(localStorage.getItem("comments")))
+        }
+        else {
+            setComments(jsonData.comments);
+            localStorage.setItem("comments", JSON.stringify(jsonData.comments));
+        }
+        setCurrentUser(jsonData.currentUser);
+    }, [])
+    
+    useEffect(() => {
+        if (comments.length !== 0) {
+            localStorage.setItem("comments", JSON.stringify(comments)); 
+        }
+    }, [comments])
+    
+    
     
     useEffect(() => {
         if (modalOpen) {
@@ -101,6 +116,7 @@ function App() {
                 comment.replies.forEach((reply) => {
                     if (reply.id === id) {
                         reply.score += 1
+                        reply.vote = 'upVote'
                     }
                 })
             })
@@ -108,7 +124,7 @@ function App() {
         }
         else {
             setComments(comments.map((comment) => comment.id === id 
-                ? {...comment, score: comment.score + 1} 
+                ? {...comment, score: comment.score + 1, vote: 'upVote'} 
                 : comment))
         }
     }
@@ -120,6 +136,7 @@ function App() {
                 comment.replies.forEach((reply) => {
                     if (reply.id === id) {
                         reply.score -= 1
+                        reply.vote = 'downVote'
                     }
                 })
             })
@@ -127,7 +144,7 @@ function App() {
         }
         else {
             setComments(comments.map((comment) => comment.id === id 
-                ? {...comment, score: comment.score - 1} 
+                ? {...comment, score: comment.score - 1, vote: 'downVote'} 
                 : comment))
         }
     }
