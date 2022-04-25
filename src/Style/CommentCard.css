@@ -68,6 +68,16 @@
     user-select: none;
 }
 
+.you-mark {
+    color: var(--neutral-white);
+    background: var(--primary-moderate-blue);
+    border-radius: 0.2rem;
+    font-weight: 400;
+    align-self: center;
+    font-size: 13px;
+    padding: 0.25rem 0.45rem;
+}
+
 .reply, .edit {
     color: var(--primary-moderate-blue);
 }
@@ -99,7 +109,10 @@
 
 .user-name {
     color: var(--neutral-dark-blue);
-    font-weight: 700;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .comment-date {

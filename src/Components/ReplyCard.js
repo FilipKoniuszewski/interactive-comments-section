@@ -93,7 +93,7 @@ export default function ReplyCard(
                     <div className="user-info">
                         <img src={userImage} alt="" />
                         <span className="user-name">
-                                {user.username}
+                                {user.username} {isCommentOwner && <span className="you-mark">you</span>}
                             </span>
                         <span className="comment-date">
                                 {!isNaN(Date.parse(createdAt))
