@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/interactive-comments-section/static/css/main.79ec95a9.css",
-    "main.js": "/interactive-comments-section/static/js/main.e89d522e.js",
+    "main.css": "/interactive-comments-section/static/css/main.b27652ec.css",
+    "main.js": "/interactive-comments-section/static/js/main.c5223115.js",
     "static/media/image-amyrobson.webp": "/interactive-comments-section/static/media/image-amyrobson.974bbf3c9ffb709f30a0.webp",
     "static/media/image-juliusomo.webp": "/interactive-comments-section/static/media/image-juliusomo.595ca29b9049f4c6ce66.webp",
     "static/media/image-maxblagun.webp": "/interactive-comments-section/static/media/image-maxblagun.e423f15841d76f3a5361.webp",
@@ -12,11 +12,11 @@
     "static/media/icon-reply.svg": "/interactive-comments-section/static/media/icon-reply.bfb4589d45cd96abd45e3b82f7e7bbc6.svg",
     "static/media/icon-minus.svg": "/interactive-comments-section/static/media/icon-minus.4aa6933cb1575b3c54fa67d84a61efaf.svg",
     "static/media/icon-delete.svg": "/interactive-comments-section/static/media/icon-delete.86cedbf2e37529f9c8f1f744254059b0.svg",
-    "main.79ec95a9.css.map": "/interactive-comments-section/static/css/main.79ec95a9.css.map",
-    "main.e89d522e.js.map": "/interactive-comments-section/static/js/main.e89d522e.js.map"
+    "main.b27652ec.css.map": "/interactive-comments-section/static/css/main.b27652ec.css.map",
+    "main.c5223115.js.map": "/interactive-comments-section/static/js/main.c5223115.js.map"
   },
   "entrypoints": [
-    "static/css/main.79ec95a9.css",
-    "static/js/main.e89d522e.js"
+    "static/css/main.b27652ec.css",
+    "static/js/main.c5223115.js"
   ]
 }
