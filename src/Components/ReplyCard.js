@@ -78,16 +78,34 @@ export default function ReplyCard(
     
     return (
         <div className="comment-card reply-card" style={{order: `${order}`}}>
-            <div className="stats-section">
-                {isUpVoted || isCommentOwner
-                    ? <img src={plusIcon} alt="" className='scored' />
-                    : <img src={plusIcon} alt="" className='not-scored' onClick={UpVote}/>}
-                <div className="stats-count">
-                    {score}
+            <div className="stats-container">
+                <div className="stats-section">
+                    {isUpVoted || isCommentOwner
+                        ? <img src={plusIcon} alt="" className='scored' />
+                        : <img src={plusIcon} alt="" className='not-scored' onClick={UpVote}/>}
+                    <div className="stats-count">
+                        {score}
+                    </div>
+                    {isDownVoted || isCommentOwner
+                        ? <img src={minusIcon} alt="" className='scored' />
+                        : <img src={minusIcon} alt="" className='not-scored' onClick={DownVote}/>}
                 </div>
-                {isDownVoted || isCommentOwner
-                    ? <img src={minusIcon} alt="" className='scored' />
-                    : <img src={minusIcon} alt="" className='not-scored' onClick={DownVote}/>}
+                {isCommentOwner 
+                    ? <div className="comment-owner-mobile">
+                    <div className="delete" onClick={HandleDelete}>
+                        <img src={deleteIcon} alt=""/>
+                        Delete
+                    </div>
+                    <div className={`edit ${edit && 'active'}`} onClick={() => setEdit(!edit)}>
+                        <img src={editIcon} alt="" />
+                        {edit ? 'Cancel' : 'Edit'}
+                    </div>
+                </div>
+                    : <div className={`reply-mobile ${reply && replyOrder === order && 'active'}`} onClick={HandleReply}>
+                        <img src={replyIcon} alt="" />
+                        <span>{reply && replyOrder === order ? 'Cancel' : 'Reply'}</span>
+                    </div>
+                }
             </div>
             <div className="comment-section">
                 <div className="user">

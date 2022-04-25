@@ -23,24 +23,23 @@ function NewComment({currentUser, addComment}) {
         }
     }
     return (
-        <div className="new-comment-section">
+        <form className="new-comment-form">
             <img src={currentUserImage} alt="" />
-            <form>
-                <label htmlFor="commentContent" />
-                <textarea name="comment"
-                          id="commentContent"
-                          autoComplete="off"
-                          placeholder="Add a comment..."
-                          value={newCommentContent}
-                          onChange={e => setNewCommentContent(e.target.value)}
-                />
-                <input type="submit"
-                       name="submit"
-                       id="add-comment"
-                       onClick={(e) => HandleSubmit(e)}
-                       value="SEND"/>
-            </form>
-        </div>
+            <label htmlFor="commentContent" />
+            <textarea name="comment"
+                      id="commentContent"
+                      autoComplete="off"
+                      placeholder="Add a comment..."
+                      value={newCommentContent}
+                      onChange={e => setNewCommentContent(e.target.value)}
+            />
+            <input type="submit"
+                   name="submit"
+                   id="add-comment"
+                   onClick={(e) => HandleSubmit(e)}
+                   value="SEND"/>
+        </form>
+        
     );
 }
 

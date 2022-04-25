@@ -6,8 +6,8 @@
     animation: come-in 1.5s ease-in-out;
     align-self: end;
     width: 95%;
-    
 }
+
 
 .reply-card {
     width: 85%;
@@ -32,6 +32,8 @@
 .new-reply-form {
     display: flex;
     align-items: stretch;
+    width: 100%;
+    gap: 0.5rem;
 }
 
 .reply-to-name {
@@ -83,5 +85,25 @@
     100%{
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .new-reply-form {
+        flex-direction: column;
+    }
+    
+    .reply-card {
+        max-width: 80%;
+    }
+
+    .new-reply-form > img {
+        order: 2;
+        position: relative;
+        top: -3rem;
+    }
+
+    .new-reply-form > input[type=submit] {
+        align-self: end;
     }
 }

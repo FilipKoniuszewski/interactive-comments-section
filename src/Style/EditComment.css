@@ -1,7 +1,10 @@
 ﻿.edit-comment-form {
     display: flex;
     flex-direction: column;
-    align-items: stretch
+    align-items: stretch;
+    width: 100%;
+    gap: 0.7rem;
+    
 }
 
 .edit-comment-form > textarea {

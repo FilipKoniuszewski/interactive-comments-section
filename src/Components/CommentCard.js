@@ -1,4 +1,4 @@
-﻿import React, {useEffect, useState} from 'react';
+﻿import React, {useEffect, useRef, useState} from 'react';
 import plusIcon from "../Assets/Images/icon-plus.svg";
 import minusIcon from "../Assets/Images/icon-minus.svg";
 import replyIcon from "../Assets/Images/icon-reply.svg";
@@ -51,7 +51,6 @@ export default function CommentCard(
         }
     }, [])
     
-    
     function HandleDelete() {
         setModalOpen(true);
         setCommentToDelete({
@@ -75,16 +74,35 @@ export default function CommentCard(
     return (
         <>
             <div className="comment-card card-space">
-                <div className="stats-section">
-                    {isUpVoted || isCommentOwner
-                        ? <img src={plusIcon} alt="" className='scored' />
-                        : <img src={plusIcon} alt="" className='not-scored' onClick={UpVote}/>}
-                    <div className="stats-count">
-                        {score}
+                <div className="stats-container">
+                    <div className="stats-section">
+                        {isUpVoted || isCommentOwner
+                            ? <img src={plusIcon} alt="" className='scored' />
+                            : <img src={plusIcon} alt="" className='not-scored' onClick={UpVote}/>}
+                        <div className="stats-count">
+                            {score}
+                        </div>
+                        {isDownVoted || isCommentOwner
+                            ? <img src={minusIcon} alt="" className='scored' /> 
+                            : <img src={minusIcon} alt="" className='not-scored' onClick={DownVote}/>}
                     </div>
-                    {isDownVoted || isCommentOwner
-                        ? <img src={minusIcon} alt="" className='scored' /> 
-                        : <img src={minusIcon} alt="" className='not-scored' onClick={DownVote}/>}
+                    {isCommentOwner 
+                        ? 
+                        <div className="comment-owner-mobile">
+                            <div className="delete" onClick={HandleDelete}>
+                                <img src={deleteIcon} alt=""/>
+                                Delete
+                            </div>
+                            <div className={`edit ${edit && 'active'}`} onClick={() => setEdit(!edit)}>
+                                <img src={editIcon} alt="" />
+                                {edit ? 'Cancel' : 'Edit'}
+                            </div>
+                        </div> 
+                        : 
+                        <div className={`reply-mobile ${reply && replyOrder === -1 && 'active'}`} onClick={() => setReply(!reply)}>
+                            <img src={replyIcon} alt="" />
+                            <span>{reply && replyOrder === -1 ? 'Cancel' : 'Reply'}</span>
+                        </div>}
                 </div>
                 <div className="comment-section">
                     <div className="user">

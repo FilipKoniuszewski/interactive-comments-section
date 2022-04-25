@@ -1,18 +1,4 @@
-﻿.new-comment-section {
-    display: flex;
-    gap: 0.5rem;
-    padding: 1rem 2rem;
-    background: var(--neutral-white);
-    border-radius: 0.7rem;
-    animation: come-in 1.5s ease-in-out;
-}
-
-.new-comment-section > img {
-    align-self: start;
-    width: 2.5rem;
-    aspect-ratio: 1;
-}
-
+﻿
 input[type=submit] {
     color: var(--neutral-white);
     outline: none;
@@ -29,11 +15,21 @@ input[type=submit]:hover {
     cursor: pointer;
     opacity: 0.5;
 }
-form {
+
+.new-comment-form {
     display: flex;
     gap: 0.7rem;
     align-items: stretch;
-    width: 100%;
+    animation: come-in 1.5s ease-in-out;
+    padding: 1rem 2rem;
+    background: var(--neutral-white);
+    border-radius: 0.7rem;
+}
+
+.new-comment-form > img {
+    align-self: start;
+    width: 2.5rem;
+    aspect-ratio: 1;
 }
 
 textarea {
@@ -66,5 +62,36 @@ textarea:focus {
     100%{
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .new-comment-form {
+        flex-direction: column;
+    }
+    
+    
+    .new-comment-form > img {
+        position: relative;
+        top: -3rem;
+        order: 2;
+    }
+    
+    .new-comment-form > input[type=submit] {
+        align-self: end;
+    }
+    
+    .new-comment-form > textarea {
+        min-height: 5rem;
+        border-radius: 0.8rem;
+    }
+    
+    textarea {
+        border-radius: 0.8rem;  
+    }
+
+    input[type=submit] {
+        padding: 1rem 1.9rem;
+        font-size: 16px;
     }
 }
