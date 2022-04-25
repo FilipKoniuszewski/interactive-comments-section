@@ -110,5 +110,6 @@ textarea:focus {
     input[type=submit] {
         padding: 1rem 1.9rem;
         font-size: 16px;
+        border-radius: 0.5rem;
     }
 }
