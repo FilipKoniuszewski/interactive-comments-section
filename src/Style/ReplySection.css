@@ -8,11 +8,9 @@
     width: 95%;
 }
 
-
 .reply-card {
     width: 85%;
     align-self: end;
-   
 }
 
 .reply-content {
@@ -91,6 +89,15 @@
 @media (max-width: 768px) {
     .new-reply-form {
         flex-direction: column;
+        height: 15rem;
+    }
+    
+    .new-reply-card {
+        max-height: 12rem;
+    }
+    
+    .reply-section {
+        gap: 1.2rem;
     }
     
     .reply-card {

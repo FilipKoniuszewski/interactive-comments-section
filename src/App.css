@@ -64,5 +64,10 @@ body {
 @media (max-width: 768px) {
     .comments-section {
         max-width: 76%;
+        gap: 1.2rem;
+    }
+    
+    .delete-space {
+        margin-bottom: -1.2rem;
     }
 }

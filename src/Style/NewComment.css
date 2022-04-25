@@ -68,6 +68,8 @@ textarea:focus {
 @media (max-width: 768px) {
     .new-comment-form {
         flex-direction: column;
+        max-height: 11.5rem;
+        padding: 0.5rem 2rem 0.5rem 2rem;
     }
     
     
