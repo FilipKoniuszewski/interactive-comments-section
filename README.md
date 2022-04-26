@@ -15,7 +15,15 @@ Your challenge is to build out this interactive comments section and get it look
 - [Solution URL](https://www.frontendmentor.io/solutions/responsive-interactive-comments-section-using-reactjs-BkD6RPNS9)
 - [Live Site URL](https://filipkoniuszewski.github.io/interactive-comments-section/) 
 
-I could use any tools I like to help complete the challenge.
+### Built with
+
+- React, JSX
+- Hooks
+- Local storage
+- CSS variables
+- Flexbox
+- react-time-ago for Comment post date
+- Figma for design
 
 Your users should be able to:
 
