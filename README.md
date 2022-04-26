@@ -8,8 +8,6 @@ This is a solution for a [Frontend Mentor](https://www.frontendmentor.io) challe
 
 ![Design preview for the Interactive comments section coding challenge](https://user-images.githubusercontent.com/82803009/165188106-ba2c6898-5f86-42f5-92e5-96f3342142b6.jpg)
 
-Your challenge is to build out this interactive comments section and get it looking as close to the design as possible.
-
 ## Links
 
 - [Solution URL](https://www.frontendmentor.io/solutions/responsive-interactive-comments-section-using-reactjs-BkD6RPNS9)
