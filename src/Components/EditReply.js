@@ -7,7 +7,9 @@ export default function EditReply({commentId, content, editComment}) {
 
     function HandleSubmit(e) {
         e.preventDefault()
-        editComment(commentId, content, true)
+        if (newCommentContent.trim()) {
+            editComment(commentId, content, true)
+        }
     }
 
     return (

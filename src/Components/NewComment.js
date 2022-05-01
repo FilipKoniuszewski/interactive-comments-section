@@ -9,7 +9,7 @@ function NewComment({currentUser, addComment}) {
     
     function HandleSubmit(e) {
         e.preventDefault()
-        if (newCommentContent) {
+        if (newCommentContent.trim()) {
             const newComment = {
                 id: Math.floor(Math.random() * 100) + 5,
                 content: newCommentContent,

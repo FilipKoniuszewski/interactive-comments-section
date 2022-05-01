@@ -31,7 +31,7 @@ function NewReply(
         let [, ...rest] = content;
         let updatedContent = rest.join(' ')
         
-        if (updatedContent) {
+        if (updatedContent.trim()) {
             const newReply = {
                 id: Math.floor(Math.random() * 100) + 5,
                 content: updatedContent,

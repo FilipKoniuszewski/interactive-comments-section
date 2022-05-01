@@ -7,7 +7,7 @@ export default function EditComment({commentId, content, setEdit, editComment, i
     
     function HandleSubmit(e) {
         e.preventDefault()
-        if (newCommentContent !== "") {
+        if (newCommentContent.trim()) {
             editComment(commentId, newCommentContent, isReply)
             setEdit(false);
         }
