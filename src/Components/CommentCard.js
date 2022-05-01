@@ -78,37 +78,37 @@ export default function CommentCard(
                 <div className="stats-container">
                     <div className="stats-section">
                         {(vote === 'upVote') || isCommentOwner
-                            ? <img src={plusIcon} alt="" className='scored' />
-                            : <img src={plusIcon} alt="" className='not-scored' onClick={UpVote}/>}
+                            ? <img src={plusIcon} alt="plusIcon" className='scored' />
+                            : <img src={plusIcon} alt="plusIcon" className='not-scored' onClick={UpVote}/>}
                         <div className="stats-count">
                             {score}
                         </div>
                         {(vote === 'downVote') || isCommentOwner
-                            ? <img src={minusIcon} alt="" className='scored' /> 
-                            : <img src={minusIcon} alt="" className='not-scored' onClick={DownVote}/>}
+                            ? <img src={minusIcon} alt="minusIcon" className='scored' /> 
+                            : <img src={minusIcon} alt="minusIcon" className='not-scored' onClick={DownVote}/>}
                     </div>
                     {isCommentOwner 
                         ? 
                         <div className="comment-owner-mobile">
                             <div className="delete" onClick={HandleDelete}>
-                                <img src={deleteIcon} alt=""/>
+                                <img src={deleteIcon} alt="deleteIcon"/>
                                 Delete
                             </div>
                             <div className={`edit ${edit && 'active'}`} onClick={() => setEdit(!edit)}>
-                                <img src={editIcon} alt="" />
+                                <img src={editIcon} alt="editIcon" />
                                 {edit ? 'Cancel' : 'Edit'}
                             </div>
                         </div> 
                         : 
                         <div className={`reply-mobile ${reply && replyOrder === -1 && 'active'}`} onClick={() => setReply(!reply)}>
-                            <img src={replyIcon} alt="" />
+                            <img src={replyIcon} alt="replyIcon" />
                             <span>{reply && replyOrder === -1 ? 'Cancel' : 'Reply'}</span>
                         </div>}
                 </div>
                 <div className="comment-section">
                     <div className="user">
                         <div className="user-info">
-                            <img src={userImage} alt="" />
+                            <img src={userImage} alt="userImage" />
                             <span className="user-name">
                                 {user.username} {isCommentOwner && <span className="you-mark">you</span>}
                             </span>
@@ -122,17 +122,17 @@ export default function CommentCard(
                             ? 
                             <div className="comment-owner">
                                 <div className="delete" onClick={HandleDelete}>
-                                    <img src={deleteIcon} alt=""/>
+                                    <img src={deleteIcon} alt="deleteIcon"/>
                                     Delete
                                 </div>
                                 <div className={`edit ${edit && 'active'}`} onClick={() => setEdit(!edit)}>
-                                    <img src={editIcon} alt="" />
+                                    <img src={editIcon} alt="editIcon" />
                                     {edit ? 'Cancel' : 'Edit'}
                                 </div>
                             </div> 
                             :
                             <div className={`reply ${reply && replyOrder === -1 && 'active'}`} onClick={() => setReply(!reply)}>
-                                <img src={replyIcon} alt="" />
+                                <img src={replyIcon} alt="replyIcon" />
                                 <span>{reply && replyOrder === -1 ? 'Cancel' : 'Reply'}</span>
                             </div>
                         }

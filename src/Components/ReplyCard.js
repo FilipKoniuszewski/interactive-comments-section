@@ -82,28 +82,28 @@ export default function ReplyCard(
             <div className="stats-container">
                 <div className="stats-section">
                     {(vote === 'upVote') || isCommentOwner
-                        ? <img src={plusIcon} alt="" className='scored' />
-                        : <img src={plusIcon} alt="" className='not-scored' onClick={UpVote}/>}
+                        ? <img src={plusIcon} alt="plusIcon" className='scored' />
+                        : <img src={plusIcon} alt="plusIcon" className='not-scored' onClick={UpVote}/>}
                     <div className="stats-count">
                         {score}
                     </div>
                     {(vote === 'downVote') || isCommentOwner
-                        ? <img src={minusIcon} alt="" className='scored' />
-                        : <img src={minusIcon} alt="" className='not-scored' onClick={DownVote}/>}
+                        ? <img src={minusIcon} alt="minus" className='scored' />
+                        : <img src={minusIcon} alt="minus" className='not-scored' onClick={DownVote}/>}
                 </div>
                 {isCommentOwner 
                     ? <div className="comment-owner-mobile comment-owner-mobile-reply">
                     <div className="delete" onClick={HandleDelete}>
-                        <img src={deleteIcon} alt=""/>
+                        <img src={deleteIcon} alt="deleteIcon"/>
                         Delete
                     </div>
                     <div className={`edit ${edit && 'active'}`} onClick={() => setEdit(!edit)}>
-                        <img src={editIcon} alt="" />
+                        <img src={editIcon} alt="editIcon" />
                         {edit ? 'Cancel' : 'Edit'}
                     </div>
                 </div>
                     : <div className={`reply-mobile ${reply && replyOrder === order && 'active'}`} onClick={HandleReply}>
-                        <img src={replyIcon} alt="" />
+                        <img src={replyIcon} alt="replyIcon" />
                         <span>{reply && replyOrder === order ? 'Cancel' : 'Reply'}</span>
                     </div>
                 }
@@ -111,7 +111,7 @@ export default function ReplyCard(
             <div className="comment-section">
                 <div className="user">
                     <div className="user-info user-info-reply-mobile">
-                        <img src={userImage} alt="" />
+                        <img src={userImage} alt="userImage" />
                         <span className="user-name user-name-reply-mobile">
                                 {user.username} {isCommentOwner && <span className="you-mark">you</span>}
                             </span>
@@ -125,17 +125,17 @@ export default function ReplyCard(
                         ?
                         <div className="comment-owner">
                             <div className="delete" onClick={HandleDelete}>
-                                <img src={deleteIcon} alt="" />
+                                <img src={deleteIcon} alt="deleteIcon" />
                                 Delete
                             </div>
                             <div className={`edit ${edit && 'active'}`} onClick={() => setEdit(!edit)}>
-                                <img src={editIcon} alt="" />
+                                <img src={editIcon} alt="editIcon" />
                                 {edit ? 'Cancel' : 'Edit'}
                             </div>
                         </div>
                         :
                         <div className={`reply ${reply && replyOrder === order && 'active'}`} onClick={HandleReply}>
-                            <img src={replyIcon} alt="" />
+                            <img src={replyIcon} alt="replyIcon" />
                             <span>{reply && replyOrder === order ? 'Cancel' : 'Reply'}</span>
                         </div>
                     }

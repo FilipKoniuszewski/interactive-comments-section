@@ -25,7 +25,7 @@ function NewComment({currentUser, addComment}) {
     }
     return (
         <form className="new-comment-form">
-            <img src={currentUserImage} alt="" />
+            <img src={currentUserImage} alt="currentUserImage" />
             <label htmlFor="commentContent" />
             <textarea name="comment"
                       id="commentContent"
@@ -35,7 +35,7 @@ function NewComment({currentUser, addComment}) {
                       onChange={e => setNewCommentContent(e.target.value)}
             />
             <div className="add-comment-section">
-                <img src={currentUserImage} alt="" />
+                <img src={currentUserImage} alt="currentUserImage" />
                 <input type="submit"
                        name="submit"
                        id="add-comment"

@@ -53,7 +53,7 @@ function NewReply(
     return (
         <div className="new-reply-card reply-card" style={{order: `${replyOrder}`}}>
             <form className="new-reply-form">
-                <img src={userImage} alt="" />
+                <img src={userImage} alt="userImage" />
                 <label htmlFor="replyContent" />
                 <textarea name="comment"
                           autoFocus
