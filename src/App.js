@@ -150,7 +150,7 @@ function App() {
     }
     
     return (
-        <div className="wrapper">
+        <main>
             <DeleteModal modalRef={modalRef}
                          modalContentRef={modalContentRef}
                          commentToDelete={commentToDelete}
@@ -170,7 +170,7 @@ function App() {
                 editComment={editComment}
                 currentUser={currentUser} 
                 comments={comments}/>}
-        </div>
+        </main>
     );
 }
 

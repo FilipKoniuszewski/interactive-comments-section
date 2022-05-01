@@ -89,19 +89,38 @@
 @media (max-width: 768px) {
     .new-reply-form {
         flex-direction: column;
+        
+    }
+
+    .reply-card {
+        width: 73%;
+        margin-left: auto;
     }
     
-    .new-reply-card {
-        
+    .comment-owner-mobile-reply {
+        font-size: 14px;
+    }
+    
+    .comment-date {
+        font-size: 13px;
+    }
+    
+    .user-name-reply-mobile {
+        gap: 0.2rem !important;
+    }
+    
+    .user-info-reply-mobile {
+        gap: 0.5rem;
+    }
+
+    .reply-section {
+        width: 100%;
     }
     
     .reply-section {
         gap: 1.2rem;
     }
     
-    .reply-card {
-        max-width: 78%;
-    }
 
     .new-reply-form > img {
         display: none;

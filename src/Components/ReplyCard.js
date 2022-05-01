@@ -92,7 +92,7 @@ export default function ReplyCard(
                         : <img src={minusIcon} alt="" className='not-scored' onClick={DownVote}/>}
                 </div>
                 {isCommentOwner 
-                    ? <div className="comment-owner-mobile">
+                    ? <div className="comment-owner-mobile comment-owner-mobile-reply">
                     <div className="delete" onClick={HandleDelete}>
                         <img src={deleteIcon} alt=""/>
                         Delete
@@ -110,9 +110,9 @@ export default function ReplyCard(
             </div>
             <div className="comment-section">
                 <div className="user">
-                    <div className="user-info">
+                    <div className="user-info user-info-reply-mobile">
                         <img src={userImage} alt="" />
-                        <span className="user-name">
+                        <span className="user-name user-name-reply-mobile">
                                 {user.username} {isCommentOwner && <span className="you-mark">you</span>}
                             </span>
                         <span className="comment-date">
