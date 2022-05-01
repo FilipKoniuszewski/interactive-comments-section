@@ -41,10 +41,6 @@ main {
     gap: 1.5rem;
 }
 
-.delete-space {
-    margin-bottom: -1.5rem;
-}
-
 
 ::-webkit-scrollbar {
     width: 5px;
@@ -71,9 +67,5 @@ main {
     .comments-section {
         max-width: 85%;
         gap: 1.2rem;
-    }
-    
-    .delete-space {
-        margin-bottom: -1.2rem;
     }
 }
