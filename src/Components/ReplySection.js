@@ -29,7 +29,7 @@ export default function ReplySection(
     }, [])
     
     return (
-        <div className={`reply-section ${(replies.length === 0 && !reply) && 'delete-space'}`}>
+        <div className={`reply-section ${(replies.length === 0 && !reply) ? 'delete-space' : 'reply-section-space'}`}>
             {replies.map((replyCard, index) => 
                 <ReplyCard 
                     key={replyCard.id}

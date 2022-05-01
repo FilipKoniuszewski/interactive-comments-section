@@ -1,11 +1,18 @@
 ﻿.reply-section {
     border-left: 2px solid var(--neutral-light-gray);
-    display: flex;
     flex-direction: column;
     gap: 1.5rem;
     animation: come-in 1.5s ease-in-out;
     align-self: end;
     width: 95%;
+}
+
+.reply-section-space {
+    display: flex;
+}
+
+.delete-space {
+    display: none;
 }
 
 .reply-card {
