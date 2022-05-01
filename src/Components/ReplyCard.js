@@ -148,9 +148,10 @@ export default function ReplyCard(
                         setEdit={setEdit}
                         isReply={true}/>
                     :
-                    <div className="reply-content">
-                        <span className="replying-to">@{replyTo}</span>{content}
-                    </div>
+                    <p className="reply-content">
+                        <span className="replying-to">@{replyTo}</span>
+                        {content}
+                    </p>
                 }
             </div>
         </div>
