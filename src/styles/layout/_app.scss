@@ -8,34 +8,35 @@
   align-items: center;
   justify-content: center;
   background: var(--neutral-very-light-gray);
-  padding: 4rem 0;
+  padding-block: 4rem;
 }
 
 .comments {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
+  max-width: 85%;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: calc(5 / 16 * 1rem);
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--neutral-grayish-blue);
 
   &:hover {
-    background: #555;
+    background: var(--scrollbar-thumb-hover);
   }
 }
 
-@include mobile {
+@include from-tablet {
   .comments {
-    max-width: 85%;
-    gap: 1.2rem;
+    max-width: none;
+    gap: 1.5rem;
   }
 }

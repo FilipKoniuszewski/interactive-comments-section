@@ -1,22 +1,27 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
-@use "../abstracts/animations";
+
+@include define-come-in-keyframes;
 
 .comment-form {
   display: flex;
+  flex-direction: column;
   gap: 0.7rem;
   align-items: stretch;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
+  max-height: 11.5rem;
   background: var(--neutral-white);
   border-radius: $radius-lg;
 
   &--reply {
     gap: 1.5rem;
-    padding: 1.5rem 2rem;
-    animation: come-in 0.25s ease-out;
+    padding: var(--space-comment-y) var(--space-comment-x);
+    max-height: none;
+    @include come-in-animation;
 
     .comment-form__inner {
       display: flex;
+      flex-direction: column;
       align-items: stretch;
       width: 100%;
       gap: 0.5rem;
@@ -24,12 +29,13 @@
   }
 
   &__avatar {
+    display: none;
     align-self: start;
     width: 2.5rem;
     aspect-ratio: 1;
 
     &--mobile {
-      display: none;
+      display: initial;
     }
   }
 
@@ -39,8 +45,9 @@
     color: var(--neutral-grayish-blue);
     border: 2px solid var(--neutral-light-gray);
     height: 4em;
-    border-radius: $radius-sm;
-    font-size: 16px;
+    min-height: 5rem;
+    border-radius: 0.8rem;
+    font-size: var(--font-size-body);
     flex: 1;
     font-family: inherit;
 
@@ -57,18 +64,19 @@
   }
 
   &__submit {
+    @include button-reset;
     color: var(--neutral-white);
-    outline: none;
     border: 0;
     padding: 1rem 1.9rem;
     background: var(--primary-moderate-blue);
-    border-radius: $radius-sm;
+    border-radius: $radius-md;
     font-weight: 700;
-    align-self: start;
+    align-self: flex-end;
     transition: 100ms ease-in-out;
     font-family: inherit;
-    font-size: inherit;
+    font-size: var(--font-size-body);
     cursor: pointer;
+    text-transform: uppercase;
 
     &:hover {
       opacity: 0.5;
@@ -83,44 +91,44 @@
 
   &--reply &__submit {
     padding: 1rem 1.5rem;
+    align-self: flex-end;
+  }
+
+  &--reply &__avatar {
+    display: none;
   }
 }
 
-@include mobile {
+@include from-tablet {
   .comment-form {
-    flex-direction: column;
-    max-height: 11.5rem;
-    padding: 0.5rem 2rem;
+    flex-direction: row;
+    max-height: none;
+    padding: 1rem 2rem;
 
     &__avatar {
-      display: none;
+      display: initial;
 
       &--mobile {
-        display: initial;
+        display: none;
       }
     }
 
-    &__submit {
-      align-self: flex-end;
-      font-size: 16px;
-      border-radius: $radius-md;
+    &__field {
+      border-radius: $radius-sm;
+      min-height: auto;
     }
 
-    &__field {
-      min-height: 5rem;
-      border-radius: 0.8rem;
+    &__submit {
+      align-self: start;
+      border-radius: $radius-sm;
     }
 
     &--reply &__inner {
-      flex-direction: column;
-    }
-
-    &--reply &__avatar {
-      display: none;
+      flex-direction: row;
     }
 
     &--reply &__submit {
-      align-self: flex-end;
+      align-self: start;
     }
   }
 }

@@ -16,7 +16,7 @@
   align-items: center;
   gap: 0.5rem;
   transition: 100ms ease-in-out;
-  line-height: 24px;
+  line-height: var(--line-height-base);
   user-select: none;
 }
 
@@ -32,8 +32,8 @@
   border: 0;
 }
 
-@mixin mobile {
-  @media (max-width: $breakpoint-mobile) {
+@mixin from-tablet {
+  @media (min-width: calc(#{$breakpoint-mobile} + 1px)) {
     @content;
   }
 }
@@ -41,4 +41,26 @@
 @mixin icon-hover-filter {
   filter: brightness(0) saturate(100%) invert(32%) sepia(49%) saturate(1045%)
     hue-rotate(205deg) brightness(95%) contrast(88%);
+}
+
+@mixin define-come-in-keyframes {
+  @keyframes come-in {
+    from {
+      opacity: 0;
+      transform: translateY(calc(-0.5 * 1rem));
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin come-in-animation {
+  animation: come-in 0.25s ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 }

@@ -10,7 +10,7 @@ React + TypeScript app with localStorage persistence, CRUD on comments and repli
 
 ## Tech stack
 
-- React 18 + TypeScript
+- React 19 + TypeScript
 - Vite
 - Sass (SCSS)
 - Vitest

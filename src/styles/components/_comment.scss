@@ -1,37 +1,43 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
-@use "../abstracts/animations";
+
+@include define-come-in-keyframes;
 
 .comment {
   background: var(--neutral-white);
   display: flex;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: var(--space-comment-y);
   border-radius: $radius-lg;
-  padding: 1.5rem 2rem;
-  animation: come-in 0.25s ease-out;
+  padding: var(--space-comment-y) var(--space-comment-x);
+  @include come-in-animation;
   align-items: stretch;
 
   &--reply {
-    width: 85%;
+    width: 73%;
     align-self: end;
+    margin-inline-start: auto;
   }
 
   &__toolbar {
+    order: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-self: flex-start;
+    width: 100%;
   }
 
   &__votes {
     background: var(--neutral-very-light-gray);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    padding: 0.7rem 0.5rem;
+    padding: 0.55rem 0.8rem;
     justify-content: flex-start;
     gap: 1.2rem;
-    border-radius: $radius-md;
-    width: 1.5rem;
+    border-radius: 0.6rem;
+    width: auto;
   }
 
   &__vote-icon {
@@ -39,16 +45,12 @@
     display: block;
     transition: 20ms ease-in-out;
 
+    &:hover img {
+      @include icon-hover-filter;
+    }
+
     img {
       display: block;
-    }
-  }
-
-  button.comment__vote-icon:hover {
-    cursor: pointer;
-
-    img {
-      @include icon-hover-filter;
     }
   }
 
@@ -70,6 +72,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__header > .comment__action {
+    display: none;
   }
 
   &__author {
@@ -105,26 +111,32 @@
     border-radius: 0.2rem;
     font-weight: 400;
     align-self: center;
-    font-size: 13px;
+    font-size: var(--font-size-badge);
     padding: 0.25rem 0.45rem;
   }
 
   &__date {
     color: var(--neutral-grayish-blue);
-    line-height: 24px;
+    line-height: var(--line-height-base);
     width: 100%;
   }
 
+  &__author--compact &__date {
+    font-size: var(--font-size-badge);
+  }
+
   &__actions {
-    display: flex;
+    display: none;
     gap: 1.5rem;
 
     &--mobile {
-      display: none;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
     }
 
     &--compact {
-      font-size: 14px;
+      font-size: var(--font-size-compact);
     }
   }
 
@@ -148,7 +160,7 @@
     }
 
     &--mobile {
-      display: none;
+      display: flex;
     }
 
     &:hover {
@@ -158,11 +170,11 @@
   }
 
   &__text {
-    padding-top: 1rem;
+    padding-block-start: 1rem;
     max-width: 60ch;
     word-wrap: break-word;
     color: var(--neutral-grayish-blue);
-    line-height: 24px;
+    line-height: var(--line-height-base);
 
     &--reply {
       max-width: 55ch;
@@ -172,53 +184,47 @@
   &__mention {
     color: var(--primary-moderate-blue);
     font-weight: 700;
-    padding-right: 0.2rem;
+    padding-inline-end: 0.2rem;
   }
 }
 
-@include mobile {
+@include from-tablet {
   .comment {
-    flex-direction: column;
+    flex-direction: row;
 
     &--reply {
-      width: 73%;
-      margin-left: auto;
+      width: 85%;
+      margin-inline-start: unset;
     }
 
     &__toolbar {
-      order: 1;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 100%;
+      order: unset;
+      flex-direction: column;
+      justify-content: unset;
+      width: auto;
     }
 
     &__votes {
-      padding: 0.55rem 0.8rem;
-      border-radius: 0.6rem;
-      flex-direction: row;
-      width: initial;
-    }
-
-    &__actions {
-      display: none;
-
-      &--mobile {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-      }
+      flex-direction: column;
+      padding: 0.7rem 0.5rem;
+      border-radius: $radius-md;
+      width: 1.5rem;
     }
 
     &__header > .comment__action {
-      display: none;
-    }
-
-    &__action--mobile {
       display: flex;
     }
 
-    &__author--compact .comment__date {
-      font-size: 13px;
+    &__actions {
+      display: flex;
+
+      &--mobile {
+        display: none;
+      }
+    }
+
+    &__action--mobile {
+      display: none;
     }
   }
 }

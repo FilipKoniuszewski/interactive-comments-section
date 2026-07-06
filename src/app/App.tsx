@@ -7,6 +7,7 @@ export function App() {
   return (
     <CommentsProvider>
       <main className="app">
+        <h1 className="visually-hidden">Interactive comments section</h1>
         <DeleteModal />
         <CommentsSection />
       </main>

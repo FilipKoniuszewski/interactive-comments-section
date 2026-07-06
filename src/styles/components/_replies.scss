@@ -2,26 +2,23 @@
 @use "../abstracts/mixins" as *;
 
 .replies {
-  border-left: 2px solid var(--neutral-light-gray);
+  border-inline-start: 2px solid var(--neutral-light-gray);
+  display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
   align-self: end;
-  width: 95%;
+  width: 100%;
   padding: 1px;
-  margin-bottom: 2px;
-
-  &--visible {
-    display: flex;
-  }
+  margin-block-end: 2px;
 
   &--hidden {
     display: none;
   }
 }
 
-@include mobile {
+@include from-tablet {
   .replies {
-    width: 100%;
-    gap: 1.2rem;
+    width: 95%;
+    gap: 1.5rem;
   }
 }

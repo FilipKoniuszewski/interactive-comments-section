@@ -3,26 +3,45 @@ import { useComments } from "@/features/comments/hooks/useComments";
 
 export function DeleteModal() {
   const { modalOpen, deleteComment, closeModal } = useComments();
-  const modalContentRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        modalOpen &&
-        modalContentRef.current &&
-        !modalContentRef.current.contains(event.target as Node)
-      ) {
-        closeModal();
-      }
+    const dialog = dialogRef.current;
+    if (!dialog) {
+      return;
+    }
+
+    if (modalOpen && !dialog.open) {
+      dialog.showModal();
+    } else if (!modalOpen && dialog.open) {
+      dialog.close();
+    }
+  }, [modalOpen]);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) {
+      return;
+    }
+
+    const handleCancel = (event: Event) => {
+      event.preventDefault();
+      closeModal();
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [modalOpen, closeModal]);
+    dialog.addEventListener("cancel", handleCancel);
+    return () => dialog.removeEventListener("cancel", handleCancel);
+  }, [closeModal]);
+
+  const handleBackdropClick = (event: React.MouseEvent<HTMLDialogElement>) => {
+    if (event.target === dialogRef.current) {
+      closeModal();
+    }
+  };
 
   return (
-    <div className={`modal${modalOpen ? " modal--open" : ""}`}>
-      <div className="modal__dialog" ref={modalContentRef}>
+    <dialog ref={dialogRef} className="modal" onClick={handleBackdropClick}>
+      <div className="modal__dialog">
         <h2 className="modal__title">Delete comment</h2>
         <p className="modal__text">
           Are you sure you want to delete this comment? This will remove the
@@ -37,6 +56,6 @@ export function DeleteModal() {
           </button>
         </div>
       </div>
-    </div>
+    </dialog>
   );
 }

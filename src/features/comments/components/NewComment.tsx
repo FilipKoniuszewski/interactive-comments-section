@@ -49,7 +49,9 @@ export function NewComment() {
       />
       <div className="comment-form__footer">
         <img className="comment-form__avatar comment-form__avatar--mobile" src={avatarUrl} alt="" />
-        <input className="comment-form__submit" type="submit" name="submit" value="SEND" />
+        <button className="comment-form__submit" type="submit" name="submit">
+          SEND
+        </button>
       </div>
     </form>
   );

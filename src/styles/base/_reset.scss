@@ -11,6 +11,16 @@
   --neutral-light-gray: #{$color-light-gray};
   --neutral-very-light-gray: #{$color-very-light-gray};
   --neutral-white: #{$color-white};
+  --modal-backdrop: rgb(0 0 0 / 50%);
+  --scrollbar-track: hsl(0 0% 95%);
+  --scrollbar-thumb-hover: hsl(0 0% 33%);
+  --font-size-badge: calc(13 / 16 * 1rem);
+  --font-size-compact: calc(14 / 16 * 1rem);
+  --font-size-body: 1rem;
+  --font-size-modal-title: calc(22 / 16 * 1rem);
+  --line-height-base: calc(24 / 16 * 1rem);
+  --space-comment-y: clamp(1rem, 2vw, 1.5rem);
+  --space-comment-x: clamp(1.5rem, 3vw, 2rem);
 }
 
 * {
@@ -20,7 +30,7 @@
 }
 
 body {
-  font-size: 16px;
+  font-size: var(--font-size-body);
 }
 
 .visually-hidden {

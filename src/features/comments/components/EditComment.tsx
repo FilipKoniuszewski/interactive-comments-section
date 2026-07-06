@@ -43,7 +43,9 @@ export function EditComment({
         value={editedContent}
         onChange={(event) => setEditedContent(event.target.value)}
       />
-      <input className="comment-edit__submit" type="submit" name="submit" value="UPDATE" />
+      <button className="comment-edit__submit" type="submit" name="submit">
+        UPDATE
+      </button>
     </form>
   );
 }

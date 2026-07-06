@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from "react";
+import { useState } from "react";
 import type { Reply, User } from "@/features/comments/types/comment.types";
 import { useComments } from "@/features/comments/hooks/useComments";
 import { getAvatarUrl } from "@/features/comments/lib/avatars";
@@ -25,7 +25,6 @@ interface CommentItemProps {
   item: CommentItemBase;
   isReply: boolean;
   replyingTo?: string;
-  order?: number;
   isCompact?: boolean;
   replyControls?: ReplyControls;
 }
@@ -34,7 +33,6 @@ export function CommentItem({
   item,
   isReply,
   replyingTo,
-  order,
   isCompact = false,
   replyControls,
 }: CommentItemProps) {
@@ -44,9 +42,6 @@ export function CommentItem({
   const isOwner = currentUser.username === item.user.username;
   const avatarUrl = getAvatarUrl(item.user.image.png);
 
-  const style: CSSProperties | undefined =
-    order !== undefined ? { order } : undefined;
-
   const authorClass = isCompact
     ? "comment__author comment__author--compact"
     : "comment__author";
@@ -55,10 +50,7 @@ export function CommentItem({
     : "comment__name";
 
   return (
-    <article
-      className={`comment${isReply ? " comment--reply" : ""}`}
-      style={style}
-    >
+    <article className={`comment${isReply ? " comment--reply" : ""}`}>
       <div className="comment__toolbar">
         <CommentVotes
           score={item.score}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import type { Reply } from "@/features/comments/types/comment.types";
 import { CommentItem } from "./CommentItem";
 import { NewReply } from "./NewReply";
@@ -30,8 +30,19 @@ export function ReplySection({
 
   const isVisible = replies.length > 0 || replyOpen;
 
+  const newReplyProps = {
+    commentId,
+    userComment,
+    onClose: () => onReplyOpenChange(false),
+    setReplyOrder,
+    setReplyTo,
+  };
+
   return (
     <div className={`replies${isVisible ? " replies--visible" : " replies--hidden"}`}>
+      {replyOpen && replyOrder === -1 && replyTo && (
+        <NewReply replyTo={replyTo} {...newReplyProps} />
+      )}
       {replies.map((reply, index) => {
         const isActiveReply = replyOpen && replyOrder === index;
 
@@ -49,31 +60,23 @@ export function ReplySection({
         };
 
         return (
-          <CommentItem
-            key={reply.id}
-            item={reply}
-            isReply
-            replyingTo={reply.replyingTo}
-            order={index}
-            isCompact
-            replyControls={{
-              isActive: isActiveReply,
-              onToggle: handleReply,
-            }}
-          />
+          <Fragment key={reply.id}>
+            <CommentItem
+              item={reply}
+              isReply
+              replyingTo={reply.replyingTo}
+              isCompact
+              replyControls={{
+                isActive: isActiveReply,
+                onToggle: handleReply,
+              }}
+            />
+            {replyOpen && replyOrder === index && replyTo && (
+              <NewReply replyTo={replyTo} {...newReplyProps} />
+            )}
+          </Fragment>
         );
       })}
-      {replyOpen && replyTo && (
-        <NewReply
-          commentId={commentId}
-          replyTo={replyTo}
-          replyOrder={replyOrder}
-          userComment={userComment}
-          onClose={() => onReplyOpenChange(false)}
-          setReplyOrder={setReplyOrder}
-          setReplyTo={setReplyTo}
-        />
-      )}
     </div>
   );
 }

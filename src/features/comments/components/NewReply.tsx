@@ -5,7 +5,6 @@ import { getAvatarUrl } from "@/features/comments/lib/avatars";
 interface NewReplyProps {
   commentId: number;
   replyTo: string;
-  replyOrder: number;
   userComment: string;
   onClose: () => void;
   setReplyOrder: (order: number) => void;
@@ -15,7 +14,6 @@ interface NewReplyProps {
 export function NewReply({
   commentId,
   replyTo,
-  replyOrder,
   userComment,
   onClose,
   setReplyOrder,
@@ -61,7 +59,7 @@ export function NewReply({
   }
 
   return (
-    <div className="comment-form comment-form--reply" style={{ order: replyOrder }}>
+    <div className="comment-form comment-form--reply">
       <form className="comment-form__inner" onSubmit={handleSubmit}>
         <img className="comment-form__avatar" src={avatarUrl} alt="" />
         <label htmlFor="replyContent" className="visually-hidden">
@@ -81,7 +79,9 @@ export function NewReply({
         />
         <div className="comment-form__footer">
           <img className="comment-form__avatar comment-form__avatar--mobile" src={avatarUrl} alt="" />
-          <input className="comment-form__submit" type="submit" name="submit" value="REPLY" />
+          <button className="comment-form__submit" type="submit" name="submit">
+            REPLY
+          </button>
         </div>
       </form>
     </div>
