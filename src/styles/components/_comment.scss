@@ -170,7 +170,7 @@
   }
 
   &__text {
-    padding-block-start: 1rem;
+    padding-block-start: var(--space-text-block-start);
     max-width: 60ch;
     word-wrap: break-word;
     color: var(--neutral-grayish-blue);
@@ -184,7 +184,7 @@
   &__mention {
     color: var(--primary-moderate-blue);
     font-weight: 700;
-    padding-inline-end: 0.2rem;
+    padding-inline-end: var(--space-mention-inline-end);
   }
 }
 

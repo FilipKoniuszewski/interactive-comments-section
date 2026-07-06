@@ -37,6 +37,8 @@
   --border-width-default: calc(2 / 16 * 1rem);
   --border-width-hairline: calc(1 / 16 * 1rem);
   --offset-hairline: calc(2 / 16 * 1rem);
+  --space-text-block-start: calc(1 * 1rem);
+  --space-mention-inline-end: calc(0.2 * 1rem);
 }
 
 * {
