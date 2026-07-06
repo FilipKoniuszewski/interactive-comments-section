@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { isParseableDate } from "@/features/comments/lib/dates";
+import { isParseableDate } from "@/features/lib/dates";
 
 describe("isParseableDate", () => {
   it("returns true for Date objects", () => {

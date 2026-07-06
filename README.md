@@ -22,7 +22,7 @@ React + TypeScript app with localStorage persistence, CRUD on comments and repli
 ```
 src/
 ├── app/                    # App shell and entry
-├── features/comments/      # Comments domain (components, context, lib, tests)
+├── features/               # Components, context, lib, types, tests
 ├── assets/                 # Images and design references
 ├── data/                   # Seed data
 └── styles/                 # Global SCSS (tokens, mixins, components)

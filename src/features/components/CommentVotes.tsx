@@ -1,6 +1,6 @@
 import plusIcon from "@/assets/images/icon-plus.svg";
 import minusIcon from "@/assets/images/icon-minus.svg";
-import type { VoteState } from "@/features/comments/types/comment.types";
+import type { VoteState } from "@/features/types/comment.types";
 
 interface CommentVotesProps {
   score: number;

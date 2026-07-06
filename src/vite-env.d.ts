@@ -11,7 +11,7 @@ declare module "javascript-time-ago/locale/en.json" {
 }
 
 declare module "*seed-data.json" {
-  import type { Comment, User } from "@/features/comments/types/comment.types";
+  import type { Comment, User } from "@/features/types/comment.types";
 
   const data: {
     currentUser: User;

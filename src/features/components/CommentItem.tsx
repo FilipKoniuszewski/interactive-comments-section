@@ -1,7 +1,7 @@
 import { useState } from "react";
-import type { Reply, User } from "@/features/comments/types/comment.types";
-import { useComments } from "@/features/comments/hooks/useComments";
-import { getAvatarUrl } from "@/features/comments/lib/avatars";
+import type { Reply, User } from "@/features/types/comment.types";
+import { useComments } from "@/features/hooks/useComments";
+import { getAvatarUrl } from "@/features/lib/avatars";
 import { EditComment } from "./EditComment";
 import { CommentTimestamp } from "./CommentTimestamp";
 import { CommentVotes } from "./CommentVotes";

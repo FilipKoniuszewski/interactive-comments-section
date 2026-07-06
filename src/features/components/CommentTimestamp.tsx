@@ -1,6 +1,6 @@
-import { ensureTimeAgoLocale } from "@/features/comments/lib/timeAgo";
+import { ensureTimeAgoLocale } from "@/features/lib/timeAgo";
 import ReactTimeAgo from "react-time-ago";
-import { isParseableDate } from "@/features/comments/lib/dates";
+import { isParseableDate } from "@/features/lib/dates";
 
 ensureTimeAgoLocale();
 

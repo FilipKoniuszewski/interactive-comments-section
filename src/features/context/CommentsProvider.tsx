@@ -6,7 +6,7 @@ import {
   useReducer,
   type ReactNode,
 } from "react";
-import seedData from "../../../data/seed-data.json";
+import seedData from "../../data/seed-data.json";
 import type { Comment, CommentsContextValue, Reply } from "../types/comment.types";
 import {
   commentsReducer,

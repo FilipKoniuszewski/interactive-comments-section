@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { useComments } from "@/features/comments/hooks/useComments";
-import { getAvatarUrl } from "@/features/comments/lib/avatars";
+import { useComments } from "@/features/hooks/useComments";
+import { getAvatarUrl } from "@/features/lib/avatars";
 
 interface NewReplyProps {
   commentId: number;

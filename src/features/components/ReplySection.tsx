@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import type { Reply } from "@/features/comments/types/comment.types";
+import type { Reply } from "@/features/types/comment.types";
 import { CommentItem } from "./CommentItem";
 import { NewReply } from "./NewReply";
 

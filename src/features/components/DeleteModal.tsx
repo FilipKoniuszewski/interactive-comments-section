@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useComments } from "@/features/comments/hooks/useComments";
+import { useComments } from "@/features/hooks/useComments";
 
 export function DeleteModal() {
   const { modalOpen, deleteComment, closeModal } = useComments();

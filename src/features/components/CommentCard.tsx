@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Comment } from "@/features/comments/types/comment.types";
+import type { Comment } from "@/features/types/comment.types";
 import { CommentItem } from "./CommentItem";
 import { ReplySection } from "./ReplySection";
 

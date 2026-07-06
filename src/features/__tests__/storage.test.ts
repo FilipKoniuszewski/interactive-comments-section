@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import type { Comment } from "@/features/comments/types/comment.types";
+import type { Comment } from "@/features/types/comment.types";
 import {
   clearStoredComments,
   loadComments,
   saveComments,
-} from "@/features/comments/lib/storage";
+} from "@/features/lib/storage";
 
 const fallbackComments: Comment[] = [
   {

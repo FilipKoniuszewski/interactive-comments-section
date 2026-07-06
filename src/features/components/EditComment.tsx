@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { useComments } from "@/features/comments/hooks/useComments";
+import { useComments } from "@/features/hooks/useComments";
 
 interface EditCommentProps {
   commentId: number;

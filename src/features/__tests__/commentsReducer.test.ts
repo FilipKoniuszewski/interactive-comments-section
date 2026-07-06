@@ -3,8 +3,8 @@ import {
   commentsReducer,
   initialState,
   sortCommentsByScore,
-} from "@/features/comments/lib/commentsReducer";
-import type { Comment } from "@/features/comments/types/comment.types";
+} from "@/features/lib/commentsReducer";
+import type { Comment } from "@/features/types/comment.types";
 
 const currentUser = {
   username: "juliusomo",

@@ -1,5 +1,5 @@
-import { sortCommentsByScore } from "@/features/comments/lib/commentsReducer";
-import { useComments } from "@/features/comments/hooks/useComments";
+import { sortCommentsByScore } from "@/features/lib/commentsReducer";
+import { useComments } from "@/features/hooks/useComments";
 import { CommentCard } from "./CommentCard";
 import { NewComment } from "./NewComment";
 
