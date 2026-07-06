@@ -1,0 +1,27 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.replies {
+  border-left: 2px solid var(--neutral-light-gray);
+  flex-direction: column;
+  gap: 1.5rem;
+  align-self: end;
+  width: 95%;
+  padding: 1px;
+  margin-bottom: 2px;
+
+  &--visible {
+    display: flex;
+  }
+
+  &--hidden {
+    display: none;
+  }
+}
+
+@include mobile {
+  .replies {
+    width: 100%;
+    gap: 1.2rem;
+  }
+}

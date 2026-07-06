@@ -1,0 +1,126 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/animations";
+
+.comment-form {
+  display: flex;
+  gap: 0.7rem;
+  align-items: stretch;
+  padding: 1rem 2rem;
+  background: var(--neutral-white);
+  border-radius: $radius-lg;
+
+  &--reply {
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    animation: come-in 0.25s ease-out;
+
+    .comment-form__inner {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+      gap: 0.5rem;
+    }
+  }
+
+  &__avatar {
+    align-self: start;
+    width: 2.5rem;
+    aspect-ratio: 1;
+
+    &--mobile {
+      display: none;
+    }
+  }
+
+  &__field {
+    padding: 0.5rem 1rem;
+    resize: none;
+    color: var(--neutral-grayish-blue);
+    border: 2px solid var(--neutral-light-gray);
+    height: 4em;
+    border-radius: $radius-sm;
+    font-size: 16px;
+    flex: 1;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+      border-color: var(--primary-moderate-blue);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__submit {
+    color: var(--neutral-white);
+    outline: none;
+    border: 0;
+    padding: 1rem 1.9rem;
+    background: var(--primary-moderate-blue);
+    border-radius: $radius-sm;
+    font-weight: 700;
+    align-self: start;
+    transition: 100ms ease-in-out;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &--reply &__field {
+    max-width: 60ch;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  &--reply &__submit {
+    padding: 1rem 1.5rem;
+  }
+}
+
+@include mobile {
+  .comment-form {
+    flex-direction: column;
+    max-height: 11.5rem;
+    padding: 0.5rem 2rem;
+
+    &__avatar {
+      display: none;
+
+      &--mobile {
+        display: initial;
+      }
+    }
+
+    &__submit {
+      align-self: flex-end;
+      font-size: 16px;
+      border-radius: $radius-md;
+    }
+
+    &__field {
+      min-height: 5rem;
+      border-radius: 0.8rem;
+    }
+
+    &--reply &__inner {
+      flex-direction: column;
+    }
+
+    &--reply &__avatar {
+      display: none;
+    }
+
+    &--reply &__submit {
+      align-self: flex-end;
+    }
+  }
+}
