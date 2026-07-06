@@ -14,7 +14,7 @@
 
   &::backdrop {
     background: var(--modal-backdrop);
-    transition: opacity 110ms ease-in-out;
+    @include motion-transition(opacity 110ms ease-in-out);
   }
 
   &:not([open]) {
@@ -35,16 +35,14 @@
     gap: 1rem;
     padding: clamp(1.5rem, 3vw, 2rem);
     user-select: none;
-    transform: translateY(calc(-2.8125 * 1rem));
+    @include motion-transform(translateY(calc(-2.8125 * 1rem)));
     opacity: 0;
-    transition:
-      opacity 110ms ease-in-out,
-      transform 110ms ease-in-out;
+    @include motion-transition(all 110ms ease-in-out);
   }
 
   &[open] &__dialog {
     opacity: 1;
-    transform: translateY(0);
+    @include motion-transform(translateY(0));
   }
 
   &__title {
@@ -57,7 +55,7 @@
     max-width: 30ch;
     color: var(--neutral-grayish-blue);
     line-height: var(--line-height-base);
-    padding-block: 0.5rem;
+    padding-block: calc(0.5 * 1rem);
   }
 
   &__actions {
@@ -71,8 +69,8 @@
     text-transform: uppercase;
     color: var(--neutral-white);
     border-radius: $radius-sm;
-    padding: 0.7rem 1.5rem;
-    transition: 100ms ease-in-out;
+    padding: var(--space-modal-button);
+    @include motion-transition(100ms ease-in-out);
 
     &:hover {
       cursor: pointer;
@@ -90,10 +88,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .modal {
-    &__dialog {
-      transform: none;
-      transition: none;
-    }
+  .modal__dialog {
+    transform: none;
   }
 }

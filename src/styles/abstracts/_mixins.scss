@@ -9,23 +9,29 @@
   padding: 0;
 }
 
+@mixin motion-transition($value) {
+  @media (prefers-reduced-motion: no-preference) {
+    transition: $value;
+  }
+}
+
 @mixin action-button {
   @include button-reset;
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  transition: 100ms ease-in-out;
+  @include motion-transition(100ms ease-in-out);
   line-height: var(--line-height-base);
   user-select: none;
 }
 
 @mixin visually-hidden {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: calc(1 / 16 * 1rem);
+  height: calc(1 / 16 * 1rem);
   padding: 0;
-  margin: -1px;
+  margin: calc(-1 / 16 * 1rem);
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
@@ -33,7 +39,7 @@
 }
 
 @mixin from-tablet {
-  @media (min-width: calc(#{$breakpoint-mobile} + 1px)) {
+  @media (min-width: calc(#{$breakpoint-mobile} + 0.0625rem)) {
     @content;
   }
 }
@@ -62,5 +68,11 @@
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
+  }
+}
+
+@mixin motion-transform($value) {
+  @media (prefers-reduced-motion: no-preference) {
+    transform: $value;
   }
 }

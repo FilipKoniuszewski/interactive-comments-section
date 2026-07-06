@@ -6,15 +6,15 @@
 .comment-form {
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: calc(0.7 * 1rem);
   align-items: stretch;
-  padding: 0.5rem 2rem;
-  max-height: 11.5rem;
+  padding: var(--space-form-mobile-y) var(--space-form-x);
+  max-height: calc(11.5 * 1rem);
   background: var(--neutral-white);
   border-radius: $radius-lg;
 
   &--reply {
-    gap: 1.5rem;
+    gap: var(--space-comment-y);
     padding: var(--space-comment-y) var(--space-comment-x);
     max-height: none;
     @include come-in-animation;
@@ -24,14 +24,14 @@
       flex-direction: column;
       align-items: stretch;
       width: 100%;
-      gap: 0.5rem;
+      gap: calc(0.5 * 1rem);
     }
   }
 
   &__avatar {
     display: none;
     align-self: start;
-    width: 2.5rem;
+    width: calc(2.5 * 1rem);
     aspect-ratio: 1;
 
     &--mobile {
@@ -40,13 +40,13 @@
   }
 
   &__field {
-    padding: 0.5rem 1rem;
+    padding: var(--space-field);
     resize: none;
     color: var(--neutral-grayish-blue);
-    border: 2px solid var(--neutral-light-gray);
+    border: var(--border-width-default) solid var(--neutral-light-gray);
     height: 4em;
-    min-height: 5rem;
-    border-radius: 0.8rem;
+    min-height: calc(5 * 1rem);
+    border-radius: calc(0.8 * 1rem);
     font-size: var(--font-size-body);
     flex: 1;
     font-family: inherit;
@@ -67,12 +67,12 @@
     @include button-reset;
     color: var(--neutral-white);
     border: 0;
-    padding: 1rem 1.9rem;
+    padding: var(--space-submit);
     background: var(--primary-moderate-blue);
     border-radius: $radius-md;
     font-weight: 700;
     align-self: flex-end;
-    transition: 100ms ease-in-out;
+    @include motion-transition(100ms ease-in-out);
     font-family: inherit;
     font-size: var(--font-size-body);
     cursor: pointer;
@@ -90,7 +90,7 @@
   }
 
   &--reply &__submit {
-    padding: 1rem 1.5rem;
+    padding: var(--space-submit-reply);
     align-self: flex-end;
   }
 
@@ -103,7 +103,7 @@
   .comment-form {
     flex-direction: row;
     max-height: none;
-    padding: 1rem 2rem;
+    padding: var(--space-form-y) var(--space-form-x);
 
     &__avatar {
       display: initial;

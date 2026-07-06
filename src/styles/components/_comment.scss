@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0.55rem 0.8rem;
+    padding: var(--space-votes-y) var(--space-votes-x);
     justify-content: flex-start;
     gap: 1.2rem;
     border-radius: 0.6rem;
@@ -43,7 +43,7 @@
   &__vote-icon {
     @include button-reset;
     display: block;
-    transition: 20ms ease-in-out;
+    @include motion-transition(20ms ease-in-out);
 
     &:hover img {
       @include icon-hover-filter;
@@ -112,7 +112,7 @@
     font-weight: 400;
     align-self: center;
     font-size: var(--font-size-badge);
-    padding: 0.25rem 0.45rem;
+    padding: var(--space-badge);
   }
 
   &__date {
@@ -206,7 +206,7 @@
 
     &__votes {
       flex-direction: column;
-      padding: 0.7rem 0.5rem;
+      padding: var(--space-votes-desktop-y) var(--space-votes-desktop-x);
       border-radius: $radius-md;
       width: 1.5rem;
     }
