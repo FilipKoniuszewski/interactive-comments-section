@@ -8,13 +8,13 @@
   align-items: center;
   justify-content: center;
   background: var(--neutral-very-light-gray);
-  padding-block: 4rem;
+  padding-block: var(--space-app-block);
 }
 
 .comments {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: var(--gap-comments);
   max-width: 85%;
 }
 
@@ -37,6 +37,5 @@
 @include from-tablet {
   .comments {
     max-width: none;
-    gap: 1.5rem;
   }
 }

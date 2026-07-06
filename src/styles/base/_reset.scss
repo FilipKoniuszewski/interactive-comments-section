@@ -39,6 +39,8 @@
   --offset-hairline: calc(2 / 16 * 1rem);
   --space-text-block-start: calc(1 * 1rem);
   --space-mention-inline-end: calc(0.2 * 1rem);
+  --space-app-block: clamp(2rem, 5vw, calc(4 * 1rem));
+  --gap-comments: clamp(calc(1.2 * 1rem), 2vw, calc(1.5 * 1rem));
 }
 
 * {
